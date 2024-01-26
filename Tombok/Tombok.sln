@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tombok", "Tombok\Tombok.csproj", "{C835C545-AEC6-43B8-B32D-D17C36C9F187}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErtekEsRef", "ErtekEsRef\ErtekEsRef.csproj", "{D1CD2A3B-24AF-4F98-917A-7AB38ED30650}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgTetelek", "ProgTetelek\ProgTetelek.csproj", "{7FB5DB06-1A6A-4687-9D45-476C6E0810D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C835C545-AEC6-43B8-B32D-D17C36C9F187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C835C545-AEC6-43B8-B32D-D17C36C9F187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C835C545-AEC6-43B8-B32D-D17C36C9F187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1CD2A3B-24AF-4F98-917A-7AB38ED30650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1CD2A3B-24AF-4F98-917A-7AB38ED30650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1CD2A3B-24AF-4F98-917A-7AB38ED30650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1CD2A3B-24AF-4F98-917A-7AB38ED30650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB5DB06-1A6A-4687-9D45-476C6E0810D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB5DB06-1A6A-4687-9D45-476C6E0810D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB5DB06-1A6A-4687-9D45-476C6E0810D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB5DB06-1A6A-4687-9D45-476C6E0810D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
