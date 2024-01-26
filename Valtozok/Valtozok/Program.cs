@@ -61,7 +61,28 @@
 
             //a szöveg típus egy ún. nem megváltoztatható típus
 
+            //aritmetikai műveletek, értékadás
+            //összeadás,kivonás, szorzás, osztás, maradékos osztás : +,-,*,/,%
+
+            elso = 0;
+            //Növelés (inkrementálás)
+            elso = elso + 1;
+            //egyszerűbb 
+            elso += 1;
+            //dekrementálás
+            elso -= 1;
+            elso *= 1;
+            elso /= 1;
+
+            //inkrementálás
+            elso++;
+            //dekrementálás
+            elso--;
+
             
+
+
+
 
         }
     }

@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Valtozok", "Valtozok\Valtozok.csproj", "{691EC800-14E4-45A8-9BEF-E0F434456C7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muveletek", "Muveletek\Muveletek.csproj", "{D65E6CCA-E2D2-4C2D-94F1-FAC383DA1B4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szovegek", "Szovegek\Szovegek.csproj", "{6C58095E-9BF9-4689-AEC5-3567CD0C9137}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{691EC800-14E4-45A8-9BEF-E0F434456C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{691EC800-14E4-45A8-9BEF-E0F434456C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{691EC800-14E4-45A8-9BEF-E0F434456C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D65E6CCA-E2D2-4C2D-94F1-FAC383DA1B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D65E6CCA-E2D2-4C2D-94F1-FAC383DA1B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D65E6CCA-E2D2-4C2D-94F1-FAC383DA1B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D65E6CCA-E2D2-4C2D-94F1-FAC383DA1B4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C58095E-9BF9-4689-AEC5-3567CD0C9137}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C58095E-9BF9-4689-AEC5-3567CD0C9137}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C58095E-9BF9-4689-AEC5-3567CD0C9137}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C58095E-9BF9-4689-AEC5-3567CD0C9137}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
