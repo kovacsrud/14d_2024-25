@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tomb_feladatok", "Tomb_feladatok\Tomb_feladatok.csproj", "{BDCB36C8-592C-482C-A268-06FC2DA75866}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDCB36C8-592C-482C-A268-06FC2DA75866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDCB36C8-592C-482C-A268-06FC2DA75866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDCB36C8-592C-482C-A268-06FC2DA75866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDCB36C8-592C-482C-A268-06FC2DA75866}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99D0502E-13C5-4501-90B1-3F4F9B213D8D}
+	EndGlobalSection
+EndGlobal
