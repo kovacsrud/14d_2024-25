@@ -38,6 +38,15 @@
             };
             Console.WriteLine();
 
+            int hetek = 0;
+            int talalat = 0;
+
+            while (talalat!=5)
+            {
+
+            talalat = 0;
+
+            //Innen futtatjuk ciklusban az ismételt sorsolást
             //Sorsolás
             for(int i=0;i< hanySzam;i++)
             {
@@ -49,14 +58,14 @@
                 nyeroszamok[i]=temp;
             };
 
-            Array.Sort(nyeroszamok);
+            //Array.Sort(nyeroszamok);
 
-            foreach (int i in nyeroszamok)
-            {
-                Console.Write($"{i} ");
-            };
+            //foreach (int i in nyeroszamok)
+            //{
+            //    Console.Write($"{i} ");
+            //};
             //Találatok számának meghatározása
-            int talalat = 0;
+            
 
             for (int i = 0; i < tippek.Length; i++)
             {
@@ -69,19 +78,30 @@
                 }
             }
 
-            Console.WriteLine($"Találatok száma:{talalat}");
+                //Console.WriteLine($"Találatok száma:{talalat}");
 
-            talalat = 0;
+                //talalat = 0;
 
-            for (int i = 0; i < tippek.Length; i++)
-            {
-                if (tippek.Contains(nyeroszamok[i]))
+                //for (int i = 0; i < tippek.Length; i++)
+                //{
+                //    if (tippek.Contains(nyeroszamok[i]))
+                //    {
+                //        talalat++;
+                //    }
+                //}
+
+                if (talalat>1)
                 {
-                    talalat++;
+                    Console.WriteLine($"Találatok száma:{talalat}");
                 }
-            }
 
-            Console.WriteLine($"Találatok száma:{talalat}");
+            
+            hetek++;
+
+                //ciklus vége
+            }
+            //Hány évbe telt
+            Console.WriteLine($"{hetek/52} évbe telt");
 
         }
     }
