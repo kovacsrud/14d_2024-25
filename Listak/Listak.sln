@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listak", "Listak\Listak.csproj", "{BCAA775C-0224-47AB-8D99-5B942378FB29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaGyakorlas", "ListaGyakorlas\ListaGyakorlas.csproj", "{AC9340FC-B7CE-4C3F-9EED-3C2DAD5FC17D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCAA775C-0224-47AB-8D99-5B942378FB29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCAA775C-0224-47AB-8D99-5B942378FB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCAA775C-0224-47AB-8D99-5B942378FB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCAA775C-0224-47AB-8D99-5B942378FB29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9340FC-B7CE-4C3F-9EED-3C2DAD5FC17D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9340FC-B7CE-4C3F-9EED-3C2DAD5FC17D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9340FC-B7CE-4C3F-9EED-3C2DAD5FC17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9340FC-B7CE-4C3F-9EED-3C2DAD5FC17D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0877E5AD-262E-4BAA-AEEB-E840D21E4B2D}
+	EndGlobalSection
+EndGlobal
