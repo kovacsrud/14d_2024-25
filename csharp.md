@@ -471,3 +471,666 @@ Ebben az esetben töréspontot helyezünk el a programban, ezen a ponton a progr
 **Töréspont beszúrása**
 
 Az F9 gomb lenyomásával lehet a főprogram valamely sorára töréspontot beszúrni. A töréspont elérésekor a program futása megáll, és a forráskódnál követhetjük a program utasításait. F10 gombbal lehet a következő utasításra lépni. Az egyes változók aktuális értéke megtekinthető ha az egérrel a változó nevére mutatunk. Tömbök esetében a tömb elemeinek az értéke is megtekinthető. Egy programba több töréspont is elhelyezhető.
+
+# Listák
+
+A lista egy generikus adatszerkezet. A generikus azt jelenti, hogy bármilyen (egyszerű vagy összetett) típusa lehet. A tömbbel ellentétben a lista elemszámát nem kell megadni, az elemszám mindig annyi, amennyi elem a listán éppen található.
+
+## Lista létrehozása (az elemek típusa int)
+```C#
+List<int> szamok = new List<int>();
+```
+## Lista létrehozása (az elemek típusa string)
+```C#
+List<string> nevek = new List<string>();
+```
+## Elemek hozzáadása a listához
+```C#
+szamok.Add(12);
+szamok.Add(48);
+szamok.Add(1223);
+
+nevek.Add("Ubul");
+nevek.Add("Zénó");
+nevek.Add("Eulália");
+```
+## Hozzáférés a lista elemeihez
+```C#
+Console.WriteLine(szamok[0]);
+Console.WriteLine(nevek[1]);
+```
+## A lista elemeinek listázása
+```C#
+for (int i = 0; i < szamok.Count; i++)
+{
+ Console.WriteLine(szamok[i]);
+}
+```
+
+## A lista elemeinek listázása foreach-el
+```C#
+foreach (var xc in nevek)
+{
+ Console.WriteLine(xc);
+}
+```
+#  Összetett adattípusok, struktúra
+
+## Struktúra létrehozása
+
+**A struktúra megadását a főprogramon (main függvény) kívül kell elvégezni
+```C#
+
+public struct Dolgozo
+{
+  public string nev;
+  public int szulEv;
+  public int magassag;
+  public int suly;
+  public string anyjaNeve;
+}
+```
+## Struktúra példány létrehozása a programban, értékek megadása
+```C#
+Dolgozo dolgozo = new Dolgozo();
+dolgozo.nev = "Sivár Iván";
+dolgozo.anyjaNeve = "Korompai Eufrozina";
+dolgozo.magassag = 180;
+dolgozo.suly = 86;
+dolgozo.szulEv = 1989;
+```
+## Dolgozok típus elemeit tartalmazó lista létrehozása, dolgozo hozzáadása
+```C#
+List<Dolgozo> dolgozok = new List<Dolgozo>();
+dolgozok.Add(dolgozo);
+```
+## a dolgozok lista elemeinek adataihoz való hozzáférés
+```C#
+Console.WriteLine(dolgozok[0].nev);
+Console.WriteLine(dolgozok[0].anyjaNeve);
+```
+## a dolgozok lista kiíratása
+```C#
+foreach (var d in dolgozok)
+{
+ Console.WriteLine($"{d.nev},{d.anyjaNeve},{d.magassag},{d.suly},{d.szulEv}");
+}
+```
+# Függvények azaz alprogramok létrehozása
+
+A függvény olyan egysége a programnak, amelyet egyszer létrehozunk,
+majd a főprogramból annyiszor hívhatjuk meg, amennyiszer szükséges.
+
+Két formája van, az egyik végrehajtja a függvényben megadott
+utasításokat. Ezt a **void** kulcsszó jelzi.
+A másik formája a függvényeknek rendelkezik visszatérési értékkel. 
+Ebben az esetben nem a **void** kulcsszó szerepel, hanem valamilyen
+változó típus (int,string,double...stb)
+ 
+## Példa
+
+Adott 4 tömb a főprogramban_
+```c#
+int[] t1 = { 1, 23, 445, 78, 7765, 43, 566, 87 };
+int[] t2 = { 11, 213, 45, 781, 75, 439, 56, 8766,1123,899 };
+int[] t3 = { 97, 135, 459, 78111, 175, 3999, 1156, 8569, 1233, 89900 };
+int[] t4 = { 9823, 22135, 11459, 789111, 23, 36, 99844, 102569, 221033, 79900 };
+```
+Szeretnénk egy olyan függvényt, amely képes egy adott tömb elemeinek a kilistázására. A függvénynek nem kell visszaadnia értéket, tehát
+a void kulcsszót kell használni.
+
+```C#
+ public static void TombLista(int[] tomb)
+        {
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                Console.Write(tomb[i]+" ");
+            }
+            Console.WriteLine();
+        }
+```
+
+A függvény híváskor kapja meg a kiírandó tömböt:
+
+```C#
+TombLista(t1);
+```
+
+Az egész együtt:
+
+```C#
+ public static void TombLista(int[] tomb)
+        {
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                Console.Write(tomb[i]+" ");
+            }
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            int[] t1 = { 1, 23, 445, 78, 7765, 43, 566, 87 };
+            int[] t2 = { 11, 213, 45, 781, 75, 439, 56, 8766,1123,899 };
+            int[] t3 = { 97, 135, 459, 78111, 175, 3999, 1156, 8569, 1233, 89900 };
+            int[] t4 = { 9823, 22135, 11459, 789111, 23, 36, 99844, 102569, 221033, 79900 };
+
+            TombLista(t1);
+            TombLista(t2);
+            TombLista(t3);
+            TombLista(t4);
+
+
+            Console.ReadKey();
+        }
+
+```
+
+# Fájlok kezelése
+
+A fájlok kezelésére alapvetően két módszer van:
+ - szöveges fájlok kezelése
+ - fájlok kezelése bináris módban
+
+## FileStream, StreamReader
+
+A fájl betöltéséhez deklarálni kell egy FileStream-et.
+
+```C#
+ FileStream fajl = new FileStream(@"tesztadat_20k.txt", FileMode.Open);
+```
+Ezután létre kell hozni egy StreamReader-t, ez fog olvasni a fájlból, soronként.
+A korábban megadott FileStream-et (fajl) kell megadni neki, valamint a szöveg kódolását (Encoding.Default)
+```C#
+StreamReader reader = new StreamReader(fajl, Encoding.Default);
+```
+Ezt követően egy while ciklussal olvasható a fájl, soronként. A ciklus addig fut, amíg az utolsó sor is be nem lesz olvasva.
+```c#
+ while (!reader.EndOfStream)
+    {
+        var sor = reader.ReadLine();
+        Console.WriteLine(sor);
+    }
+```
+A beolvasás után be kell zárni a fájlt
+```C#
+ reader.Close();
+```
+## Kivételek, kezelésük a programban
+
+A programok működése során sokféle probléma adódhat, ebben az esetben a rendszer ún. exception-öket (kivételeket)  hoz létre. A kivételek kezelésével kell a programozónak úrrá lennie a problémán.
+
+A kivételek elkapásához és kezeléséhez egy külön blokkot kell használni, melynek neve: **try...catch**
+
+```C#
+try {
+
+//Ide kerülnek a végrehajtani kívánt, és adott esetben
+//kivételt létrehozó műveletek
+
+}
+catch()
+{
+//Itt adjuk meg, hogy mi történjen, ha kivétel 
+//keletkezett
+}
+```
+
+Az előbbi példa try..catch blokkban
+```C#
+ try
+            {
+                FileStream fajl = new FileStream(@"tesztadat_20k.txt", FileMode.Open);
+                StreamReader reader = new StreamReader(fajl, Encoding.Default);
+
+                while (!reader.EndOfStream)
+                {
+                    var sor = reader.ReadLine();
+                    Console.WriteLine(sor);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+            }
+```
+## Szöveges fájl beolvasása a ReadAllLines paranccsal
+
+A **ReadAllLines** beolvassa a szöveges fájlt soronként, a sorokat egy string tömbbe teszi.
+
+```C#
+try
+   {   
+     var sorok = File.ReadAllLines(@"c:/eu/EUcsatlakozas.txt", Encoding.Default);
+
+       for (int i = 0; i < sorok.Length; i++)
+         {
+                    Console.WriteLine(sorok[i]);
+         }
+
+   }
+catch (Exception ex)
+   {
+       Console.WriteLine(ex.Message);                
+   }
+```            
+## Beolvasás és feldolgozás
+
+```C#
+      struct orszag
+        {
+            public string orszagnev;
+            public string csatlakozas;
+        }
+
+        static void Main(string[] args)
+        {
+            //szükségesek az adatok feldolgozásához
+            List<orszag> orszagok = new List<orszag>();
+            orszag orszag = new orszag();
+
+            try
+            {
+                var sorok=File.ReadAllLines(@"c:/eu/EUcsatlakozas.txt", Encoding.Default);
+                for (int i = 0; i < sorok.Length; i++)
+                {
+                    var adatok = sorok[i].Split(';');
+                    orszag.orszagnev = adatok[0];
+                    orszag.csatlakozas = adatok[1];
+                    orszagok.Add(orszag);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);                
+            }
+
+            Console.WriteLine($"Az országok száma a listában:{orszagok.Count}");
+
+            foreach (var i in orszagok)
+            {
+                Console.WriteLine($"{i.orszagnev},{i.csatlakozas}");
+            }
+
+
+            Console.ReadKey();
+        }
+```
+
+## Adatok írása fájlba
+**Adott a következő lista, amit fájlba szeretnénk írni:**
+```C#
+List<string> nevek = new List<string> {"Éva","Ubul","Gerzson","Ágnes","Zénó","Eufrozina" };
+```
+** FileStream-et és StreamWriter-t használunk**
+```C#
+ try
+            {
+                FileStream fajl = new FileStream(@"nevek.txt", FileMode.Create);
+                StreamWriter writer = new StreamWriter(fajl, Encoding.Default);
+                foreach (var i in nevek)
+                {
+                    writer.WriteLine(i);
+                }
+                writer.Close();// a lezárás itt nagyon fontos
+                Console.WriteLine("Kiírás kész!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+            }
+```
+
+**A StreamWriter használata USING kódblokkal**
+A USING kódblokk automatikusan elvégzi a fájlba való írás után elvégzendő dolgokat (fájl bezárása, erőforrások felszabadítása), használata javasolt.
+A kód így néz ki a USING használatával:
+```C#
+try
+            {
+                FileStream fajl = new FileStream(@"nevek.txt", FileMode.Create);
+
+                //a using blokk eltakarít maga után, az előzőnél jobb megoldás
+
+                using (StreamWriter writer = new StreamWriter(fajl, Encoding.Default))
+                {
+                    foreach (var i in nevek)
+                    {
+                        writer.WriteLine(i);
+                    }
+                }          
+                                
+                Console.WriteLine("Kiírás kész!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+            }
+```
+
+## Struktúra (több egyszerű változót tartalmazó típus) létrehozása
+A struktúrát mindig a főprogramon kívül kell létrehozni. Akár külön fájlban is lehet.
+
+```C#
+ struct Orszag
+        {
+            public string Orszagnev;
+            public string Csatlakozas;
+        }
+```
+Ez a struktúra két string változót tartalmaz.
+
+A struktúrából a főprogramban példányt kell létrehozni, a példányt lehet adatokkal feltölteni, stb.
+
+```C#
+Orszag ausztria = new Orszag();
+ausztria.Orszagnev = "Ausztria";
+ausztria.Csatlakozas = "1995.01.01.";
+```
+
+## Fájl beolvasás, feldolgozás struktúrába
+```C#
+ List<Orszag> orszagok = new List<Orszag>();
+            Orszag orszag = new Orszag();
+            try
+            {
+                FileStream fajl = new FileStream(@"c:/EU/EUcsatlakozas.txt", FileMode.Open);
+
+                using (StreamReader reader = new StreamReader(fajl,Encoding.UTF7))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        //Egy sor beolvasása a fájlból,felvágás a ; karakter mentén
+                        //és az eredmény tömbbe rakása
+                        var e = reader.ReadLine().Split(';');
+                                                
+                        orszag.Orszagnev = e[0];
+                        orszag.Csatlakozas = e[1];
+                        orszagok.Add(orszag);
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);                
+            }
+```
+## Adatok kiválogatása (L betűvel kezdődő országok) és másik listába helyezése
+```C#
+var lorszagok = orszagok.FindAll(x => x.Orszagnev.StartsWith("L"));
+```
+A FindAll megkeresi az **orszagok** listában a feltételnek megfelelő összes sort, és egy új listába helyezi.
+
+## Az eredménylista fájlba írása
+
+A fájlba írás nagyon hasonlít a beolvasáshoz, lényegében be kell járni egy ciklussal a kiírni kívánt kollekciót(listát) és a sorait a fájlba írni.
+
+```C#
+//A kiírást is try..catch blokkban végezzük
+try
+            {
+                //Filestream létrehozás            
+                FileStream fajl = new FileStream(@"c:/EU/l_orszagok.txt", FileMode.Create);
+
+                //Kiírásra a StreamWriter-t kell használni, using blokkban
+                using (StreamWriter writer = new StreamWriter(fajl, Encoding.Default))
+                {
+                    foreach (var i in lorszagok)
+                    {
+                        writer.WriteLine($"{i.Orszagnev};{i.Csatlakozas}");
+                    }
+                }
+                
+                Console.WriteLine("Kiírás kész!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);                
+            }
+```
+
+# Hiányzások vizsgafeladat megoldása
+
+```C#
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Hianyzasok
+{
+    class Program
+    {
+        struct Hianyzas
+        {
+            public string nev;
+            public string osztaly;
+            public int elsonap;
+            public int utolsonap;
+            public int mulasztottorak;
+
+            //Konstruktor függvény, ezzel dolgozzuk fel a fájlból
+            //beolvasott sort
+            public Hianyzas(string sor)
+            {
+                var e = sor.Split(';');
+                nev = e[0];
+                osztaly = e[1];
+                elsonap = Convert.ToInt32(e[2]);
+                utolsonap= Convert.ToInt32(e[3]);
+                mulasztottorak= Convert.ToInt32(e[4]);
+            }
+
+
+        }
+
+        static void Main(string[] args)
+        {
+            List<Hianyzas> hianyzasok = new List<Hianyzas>();
+
+            try
+            {
+                var sorok = File.ReadAllLines(@"c:/hianyzasok/szeptember.csv",Encoding.Default);
+                //Az első sor nem kell feldolgozni, ezért a FOR 1-től fut.
+                for (int i = 1; i < sorok.Length; i++)
+                {
+                    //Struktúra példányosítása
+                    Hianyzas hianyzas = new Hianyzas(sorok[i]);
+
+                    //A struktúra hozzáadása a listához
+                    hianyzasok.Add(hianyzas);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.WriteLine($"Adatsorok száma:{hianyzasok.Count}");
+
+            //A tanulók összes hiányzása
+            var osszhianyzas = hianyzasok.Sum(x=>x.mulasztottorak);
+
+            Console.WriteLine($"Összes hiányzás:{osszhianyzas}");
+
+            //Bekérés konzolról
+            Console.Write("A tanuló neve:");
+            var tanulonev = Console.ReadLine();
+            Console.Write("Adjon meg egy napot 1 és 30 között:");
+            var nap = Convert.ToInt32(Console.ReadLine());
+
+            //Az Any meg tudja nézni, hogy egy érték szerepel-e az
+            //adatszerkezetben
+            if (hianyzasok.Any(x=>x.nev==tanulonev))
+            {
+                Console.WriteLine("A tanuló hiányzott szeptemberben");
+            } else
+            {
+                Console.WriteLine("A tanuló nem hiányzott szeptemberben");
+            }
+
+            //A bekért napon hiányzó tanulók
+            var hianyzokegynapon = hianyzasok.FindAll(x=>x.elsonap>=nap && x.utolsonap<=nap);
+
+            //Ha van hiányzó, akkor listázzuk, egyébként üzenet
+            if (hianyzokegynapon.Count>0)
+            {
+                foreach (var i in hianyzokegynapon)
+                {
+                    Console.WriteLine($"{i.nev},{i.osztaly}");
+                }
+            } else
+            {
+                Console.WriteLine("Ezen a napon nem hiányzott senki");
+            }
+
+            //Összesítés készítése -> ToLookUp
+
+            var osszesites = hianyzasok.ToLookup(x=>x.osztaly).OrderBy(x=>x.Key);
+
+            //Az összesítés kiíratása
+
+            //Adatmező helyett az összesítés kulcsát kell kiíratni
+            foreach (var i in osszesites)
+            {
+                Console.WriteLine($"{i.Key},{i.Sum(x=>x.mulasztottorak)}");
+            }
+
+            //Fájlba írás a StreamWriter-el
+            try
+            {
+                FileStream fajl = new FileStream(@"c:/hianyzasok/osszegzes.txt", FileMode.Create);
+                using (StreamWriter wr=new StreamWriter(fajl,Encoding.Default))
+                {
+                    foreach (var i in osszesites)
+                    {
+                        wr.WriteLine($"{i.Key},{i.Sum(x => x.mulasztottorak)}");
+                    }
+                }
+                Console.WriteLine("Kiírás kész");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);                               
+            }
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
+```
+# Objektum-orientált szemlélet, programozás
+
+Az objektum összetartozó adatokat és metódusokat jelent. Az objektum egy önálló egység, amely jó meghatározott határokkal rendelkezik.
+
+Osztály: az osztály az objektum terve, definíciója.
+Példány: az osztály alapján létrehozott használható, "futtatható" objektum. 
+
+pl. 
+
+**példányosítás**
+```C#
+Random veletlenSzam=new Random();
+```
+**a példány használata, egy metódusának hívása**
+```C#
+veletlenSzam.Next(-10,10+1)
+```
+## Egységbe zárás
+Az egységbe zárás(encapsulation) azt jelenti, hogy az osztály adatai kívülről nem érhetőek el, vagy módosíthatóak közvetlenül, azokat
+csak metódusokon keresztül lehet elérni. A metódusok segítségével lehet az adatok értékeit ellenőrzötten beállítani, módosítani.
+
+## Konstruktor
+
+A konstruktor metódus feladata a példány kezdeti (vagy akár végleges) értékeinek beállítása. Az osztály példányosításakor automatikusan lefut, nem kell külön hívni.
+
+## Öröklődés
+
+Egy meglévő osztály továbbfejleszthetünk, vagy specializálhatunk az öröklődés segítségével. Egy adott osztályból leszármaztathatunk egy újat, és az utód osztály mindent tudni fog, amit az ős osztály, illetve tudni fogja az utód osztály azokat a metódusokat, adatokat, amelyeket hozzáadtunk.
+
+### Metódusok felülírása
+
+Ha szükség van arra, hogy az utód osztályban máshogy viselkedjen az ős osztály metódusa, akkor metódus felülírást alkalmazunk. Ebben az esetben az ős osztályban a **VIRTUAL** kulcsszóval jelezzük, hogy az adott metódus az utód osztályban felülírható.
+Az utód osztályban a felülíró metódusnál az **OVERRIDE** kulcsszó fog szerepelni.
+
+### A property (tulajdonság) a C#-ban
+
+A property egy adatot és a hozzá tartozó lekérdező illetve beállító függvényeket jelenti (3 az 1-ben :) ).
+Alaphelyzetben a property publikus láthatóságú és lekérdezhető ill. beállítható, de saját lekérdező és beállító függvényt is készíthetünk neki.
+
+## Absztrakt osztályok
+
+Az ilyen osztály attól absztrakt, hogy bizonyos metódusait még nem lehet megvalósítani azért, mert az osztály jelenlegi formája túl általános. Az absztrakt osztályok pusztán öröklési célokat szolgálnak. Rögzíthető bennük, hogy az utódoknak mely metódusokat kell megvalósítaniuk. Tartalmazhatnak nem absztrakt metódusokat is. Az absztrakt osztály nem példányosítható.
+
+```c#
+public abstract class Ember
+    {
+        public string Nev { get; set; }
+        public int SzuletesiEv { get; set; }
+        public int Magassag { get; set; }
+        public int Suly { get; set; }
+
+        public int GetEletkor()
+        {
+            return 2020 - SzuletesiEv;
+        }
+
+        public abstract void Eszik();
+
+        public abstract void Iszik();
+
+        public abstract void Mozog();
+
+    }
+```
+Az absztrakt osztályból leszármaztatott osztály lesz példányosítható, ebben az osztályban meg kell valósítani a korábban absztraktnak deklarált metódusokat. 
+
+```C#
+ public class Sportolo : Ember
+    {
+        public Sportolo(string sportag,string nev,int magassag,int szulev,int suly)
+        {
+            Sportag = sportag;
+            Nev = nev;
+            Magassag = magassag;
+            SzuletesiEv = szulev;
+            Suly = suly;
+        }
+
+        public string Sportag { get; set; }
+
+        public override void Eszik()
+        {
+            Console.WriteLine("A sportoló sokat eszik");
+        }
+
+        public override void Iszik()
+        {
+            Console.WriteLine("A sportoló sokat iszik, alkoholt soha.");
+        }
+
+        public override void Mozog()
+        {
+            Console.WriteLine("A sportoló lendületesen mozog");
+        }
+
+        public void Sportol()
+        {
+            Console.WriteLine($"A sportoló sportok:{Sportag}");
+        }
+    }
+```
+A Sportolo osztály az Ember-ből lett leszármaztatva, ebben override-al felül lettek írva a korábbi absztrakt metódusok.
+
+Számos osztályt származtathatunk az Ember-ből. A Sportolo osztálynak van Mozog() metódusa, és ha leszármaztatunk az Ember-ből egy Nyugdijas-osztályt, abban is lesz. Nyilvánvaló, hogy a Nyugdijas osztály egészen mást fog csinálni, ha a Mozog() metódust meghívjuk, mint a Sportolo osztály esetében. Ezt nevezik az OOP-ben polimorfizmusnak.
