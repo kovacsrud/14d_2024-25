@@ -1,0 +1,27 @@
+﻿<Window x:Class="WpfKepek.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfKepek"
+        mc:Ignorable="d"
+        Title="Képek" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="imageElso" Source="d:\testpics\apple.png"   />
+        <Image x:Name="imageMasodik" Margin="0,217,0,0" Grid.Row="1"/>
+        <StackPanel Grid.Column="1">
+            <Image x:Name="imageHarmadik" />
+            <Button x:Name="buttonOpen" Content="Megnyitás" Width="150" Height="30" Click="buttonOpen_Click" />
+
+        </StackPanel>
+
+    </Grid>
+</Window>

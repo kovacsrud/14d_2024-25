@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfKepek", "WpfKepek\WpfKepek.csproj", "{88038B55-E133-4844-97C8-F8AAF9F77FEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfKepMultiselect", "WpfKepMultiselect\WpfKepMultiselect.csproj", "{872587C4-79C3-4444-8716-E31A93A1C5DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88038B55-E133-4844-97C8-F8AAF9F77FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88038B55-E133-4844-97C8-F8AAF9F77FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88038B55-E133-4844-97C8-F8AAF9F77FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88038B55-E133-4844-97C8-F8AAF9F77FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872587C4-79C3-4444-8716-E31A93A1C5DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872587C4-79C3-4444-8716-E31A93A1C5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872587C4-79C3-4444-8716-E31A93A1C5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872587C4-79C3-4444-8716-E31A93A1C5DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE268555-A196-41A6-996E-50B7C1B74BD4}
+	EndGlobalSection
+EndGlobal
