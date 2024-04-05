@@ -33,7 +33,7 @@ namespace WpfDatagridWindow
 
         private void menuitemAutoadat_Click(object sender, RoutedEventArgs e)
         {
-            AutoadatWin autoadat = new AutoadatWin();
+            AutoadatWin autoadat = new AutoadatWin(Autok);
             autoadat.ShowDialog();
         }
 
@@ -53,6 +53,11 @@ namespace WpfDatagridWindow
                     MessageBox.Show(ex.Message, "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);                    
                 }
             }
+        }
+
+        private void menuitemKilepes_Click(object sender, RoutedEventArgs e)
+        {
+            System.Environment.Exit(0);
         }
     }
 }

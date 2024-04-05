@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfDatagrid.Model;
 
 namespace WpfDatagridWindow
 {
@@ -19,9 +20,13 @@ namespace WpfDatagridWindow
     /// </summary>
     public partial class AutoadatWin : Window
     {
-        public AutoadatWin()
+        //Dependency injection
+        public List<Auto> Autok { get; set; }
+        public AutoadatWin(List<Auto> autok)
         {
             InitializeComponent();
+            Autok = autok;
+            datagridAutoadat.ItemsSource = Autok;
         }
     }
 }

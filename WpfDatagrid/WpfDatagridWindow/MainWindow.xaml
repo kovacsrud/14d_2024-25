@@ -16,7 +16,7 @@
                 <MenuItem x:Name="menuitemMegnyitas" Header="Megnyitás" Click="menuitemMegnyitas_Click"/>
                 <MenuItem Header="Mentés"/>
                 <MenuItem Header="Mentés másként"/>
-                <MenuItem Header="Kilépés"/>
+                <MenuItem x:Name="menuitemKilepes" Header="Kilépés" Click="menuitemKilepes_Click"/>
             </MenuItem>
             <MenuItem Header="Szerkesztés">
                 <MenuItem Header="Kivágás"/>
