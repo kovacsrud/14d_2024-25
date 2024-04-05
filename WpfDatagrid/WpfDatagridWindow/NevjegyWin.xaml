@@ -1,0 +1,13 @@
+﻿<Window x:Class="WpfDatagridWindow.NevjegyWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDatagridWindow"
+        mc:Ignorable="d"
+        Title="NevjegyWin" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="Autó adatok program" FontSize="66" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+    </Grid>
+</Window>
