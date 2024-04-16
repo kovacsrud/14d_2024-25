@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfIdozito.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfIdozito"
+        mc:Ignorable="d"
+        Title="Időzítő" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="imageKep" Grid.ColumnSpan="2" />
+        <Button x:Name="buttonTolt" Content="Betöltés" Grid.Column="0" Grid.Row="1" Width="150" Height="40" FontSize="22" Click="buttonTolt_Click"/>
+        <Button x:Name="buttonStartStop" Content="Start" Grid.Column="1" Grid.Row="1" Width="150" Height="40" FontSize="22" IsEnabled="False" Click="buttonStartStop_Click"/>
+
+    </Grid>
+</Window>

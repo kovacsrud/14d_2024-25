@@ -10,10 +10,11 @@ namespace TestAlapmuveletek
         }
 
         [Test]
-        [TestCase(300,200,100)]
-        [TestCase(400, 200, 200)]
-        [TestCase(700, 400, 300)]
-        [TestCase(500.3456788,250.35,250)]
+        //[TestCase(300,200,100)]
+        //[TestCase(400, 200, 200)]
+        //[TestCase(700, 400, 300)]
+        //[TestCase(500.3456788,250.35,250)]
+        [TestCaseSource("GetOsszeadasAdatok")]
         public void OsszeadasTest(double elvart,double a,double b)
         {
             //Három rész arrange, act, assert (AAA)
@@ -31,5 +32,20 @@ namespace TestAlapmuveletek
             //assert
             Assert.AreEqual(elvart, eredmeny,0.01);
         }
+
+        public static IEnumerable<double[]> GetOsszeadasAdatok()
+        {
+            var sorok = File.ReadAllLines("tesztesetek_osszeadas.csv");
+            for (int i = 0; i < sorok.Length; i++)
+            {
+                var adatok = sorok[i].Split(';');
+                double a = Convert.ToDouble(adatok[0]);
+                double b = Convert.ToDouble(adatok[1]);
+                double elvart = Convert.ToDouble(adatok[2]);
+
+                yield return new[] { elvart, a, b };
+            }
+        }
+
     }
 }
