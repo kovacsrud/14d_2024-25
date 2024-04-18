@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfIMDB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfIMDB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="IMDB" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="120"/>
+        <Menu>
+            <MenuItem Header="Fájl">
+                <MenuItem x:Name="menuitemMegnyitas" Header="Megnyitás" Click="menuitemMegnyitas_Click"/>
+                <MenuItem Header="Mentés" />
+                <MenuItem x:Name="menuitemKilepes" Header="Kilépés" Click="menuitemKilepes_Click"/>
+            </MenuItem>
+            <MenuItem Header="Szerkesztés">
+                <MenuItem Header="Kivágás"/>
+                <MenuItem Header="Másolás"/>
+                <MenuItem Header="Beillesztés" />
+            </MenuItem>
+            <MenuItem Header="Adatok">
+                <MenuItem x:Name="menuitemSzuresEv" Header="Szűrés év szerint" Click="menuitemSzuresEv_Click"/>
+                <MenuItem x:Name="menuitemSzuresImdb" Header="Szűrés IMDB rating szerint" Click="menuitemSzuresImdb_Click"/>
+                <MenuItem x:Name="menuitemSzuresKategoria" Header="Szűrés kategória szerint" Click="menuitemSzuresKategoria_Click"/>
+            </MenuItem>
+            <MenuItem Header="Súgó">
+                <MenuItem x:Name="menuitemNevjegy" Header="Névjegy" Click="menuitemNevjegy_Click"/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>
