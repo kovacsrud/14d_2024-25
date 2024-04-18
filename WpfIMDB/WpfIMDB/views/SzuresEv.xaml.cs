@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,7 @@ namespace WpfIMDB.views
     /// </summary>
     public partial class SzuresEv : Window
     {
+        List<Movie> result=new List<Movie>();
         public SzuresEv(MovieList movies)
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace WpfIMDB.views
 
             datagridImdbData.ItemsSource = null;
 
-            var result = dc.Movies.FindAll(x=>x.ReleaseYear==Convert.ToInt32(textboxEv.Text));
+            result = dc.Movies.FindAll(x=>x.ReleaseYear==Convert.ToInt32(textboxEv.Text));
 
             if (result.Count<1)
             {
@@ -49,6 +52,36 @@ namespace WpfIMDB.views
         {
             var dc = DataContext as MovieList;
             datagridImdbData.ItemsSource = dc.Movies;
+        }
+
+        private void buttonKiir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (result.Count>0)
+                {
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = ".csv|*.csv|*.*|*.*";
+
+                    if (saveFileDialog.ShowDialog() == true)
+                    {
+                        FileStream fajl=new FileStream(saveFileDialog.FileName, FileMode.Create);
+                        using(StreamWriter writer=new StreamWriter(fajl,Encoding.Default))
+                        {
+                            writer.WriteLine($"movie_name,release_year;imdb_rating;genre") ;
+                            foreach(var r in result)
+                            {
+                                writer.WriteLine($"{r.MovieName};{r.ReleaseYear};{r.ImdbRating};{r.Genre}") ;
+                            }
+                        }
+                        MessageBox.Show("Adatok mentve!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);                
+            }
         }
     }
 }

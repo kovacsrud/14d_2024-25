@@ -24,6 +24,7 @@
             <TextBox x:Name="textboxEv" Width="200" Height="30" FontSize="24" Margin="0,0,10,0"/>
             <Button x:Name="buttonKeres" Content="Keresés" Margin="0,0,10,0" Click="buttonKeres_Click"/>
             <Button x:Name="buttonReset" Content="Visszaállítás" Click="buttonReset_Click" />
+            <Button x:Name="buttonKiir" Content="Fájlba írás" Click="buttonKiir_Click" Margin="10,0,0,0"/>
         </WrapPanel>
 
     </Grid>
