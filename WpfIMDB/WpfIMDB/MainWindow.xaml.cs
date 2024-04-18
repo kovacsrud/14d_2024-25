@@ -19,7 +19,7 @@ namespace WpfIMDB
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Movie> Movies { get; set; }
+        //public MovieList Movies { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -44,8 +44,9 @@ namespace WpfIMDB
             {
                 try
                 {
-                    MovieList movieList = new MovieList(dialog.FileName, ';');
-                    Movies=movieList.Movies;
+                    //MovieList movieList = new MovieList(dialog.FileName, ';');
+                    //Movies = movieList;
+                    DataContext=new MovieList(dialog.FileName,';');
                 }
                 catch (Exception ex)
                 {
@@ -56,7 +57,8 @@ namespace WpfIMDB
 
         private void menuitemSzuresEv_Click(object sender, RoutedEventArgs e)
         {
-            SzuresEv szuresEv = new SzuresEv(Movies);
+            var dc = (MovieList)DataContext;
+            SzuresEv szuresEv = new SzuresEv(dc);
             szuresEv.ShowDialog();
         }
 

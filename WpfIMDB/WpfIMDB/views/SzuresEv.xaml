@@ -8,10 +8,23 @@
         Title="SzuresEv" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="datagridImdbData" ItemsSource="{Binding}" ColumnWidth="*"/>
+        <DataGrid x:Name="datagridImdbData" ItemsSource="{Binding Movies}" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Film címe" Binding="{Binding MovieName}" />
+                <DataGridTextColumn Header="Megjelenés címe" Binding="{Binding ReleaseYear}" />
+                <DataGridTextColumn Header="Imdb értékelés" Binding="{Binding ImdbRating}" />
+                <DataGridTextColumn Header="Kategória" Binding="{Binding Genre}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox x:Name="textboxEv" Width="200" Height="30" FontSize="24" Margin="0,0,10,0"/>
+            <Button x:Name="buttonKeres" Content="Keresés" Margin="0,0,10,0" Click="buttonKeres_Click"/>
+            <Button x:Name="buttonReset" Content="Visszaállítás" Click="buttonReset_Click" />
+        </WrapPanel>
 
     </Grid>
 </Window>

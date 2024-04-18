@@ -20,10 +20,35 @@ namespace WpfIMDB.views
     /// </summary>
     public partial class SzuresEv : Window
     {
-        public SzuresEv(List<Movie> movies)
+        public SzuresEv(MovieList movies)
         {
             InitializeComponent();
             DataContext = movies;
+        }
+
+        private void buttonKeres_Click(object sender, RoutedEventArgs e)
+        {
+            var dc = DataContext as MovieList;
+
+            datagridImdbData.ItemsSource = null;
+
+            var result = dc.Movies.FindAll(x=>x.ReleaseYear==Convert.ToInt32(textboxEv.Text));
+
+            if (result.Count<1)
+            {
+                MessageBox.Show("Nincs a feltételnek megfelelő adat!");
+            } else
+            {
+                datagridImdbData.ItemsSource= result;
+            }
+
+
+        }
+
+        private void buttonReset_Click(object sender, RoutedEventArgs e)
+        {
+            var dc = DataContext as MovieList;
+            datagridImdbData.ItemsSource = dc.Movies;
         }
     }
 }
