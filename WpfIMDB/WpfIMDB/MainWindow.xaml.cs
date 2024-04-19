@@ -69,7 +69,9 @@ namespace WpfIMDB
 
         private void menuitemSzuresKategoria_Click(object sender, RoutedEventArgs e)
         {
-
+            var dc = DataContext as MovieList;
+            SzuresKategoria szuresKategoria=new SzuresKategoria(dc);
+            szuresKategoria.ShowDialog();
         }
     }
 }

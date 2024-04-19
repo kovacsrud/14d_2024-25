@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="SzuresKategoria" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="datagridKategoria" ItemsSource="{Binding Movies}" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Film címe" Binding="{Binding MovieName}"/>
+                <DataGridTextColumn Header="Megjelenés éve" Binding="{Binding ReleaseYear}"/>
+                <DataGridTextColumn Header="Imdb értékelés" Binding="{Binding ImdbRating}"/>
+                <DataGridTextColumn Header="Szavazatok" Binding="{Binding Votes}"/>
+                <DataGridTextColumn Header="Kategória" Binding="{Binding Genre}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="comboKategoria" ItemsSource="{Binding Kategoriak}" SelectedIndex="0" Grid.Row="1" Width="200" Height="30" SelectionChanged="comboKategoria_SelectionChanged"/>
+
     </Grid>
 </Window>

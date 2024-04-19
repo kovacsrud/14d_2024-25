@@ -10,6 +10,7 @@ namespace WpfIMDB.model
     public class MovieList
     {
         public List<Movie> Movies { get; set; } = new List<Movie>();
+        public List<string> Kategoriak { get; set; } = new List<string>();
 
         public MovieList(string fajl,char hatarolo,int start=1)
         {
@@ -19,6 +20,15 @@ namespace WpfIMDB.model
             {
                 Movies.Add(new Movie(sorok[i], hatarolo));
             }
+
+            var katlookup = Movies.ToLookup(x => x.Genre);
+
+
+            foreach (var i in katlookup)
+            {
+                Kategoriak.Add(i.Key);
+            }
+
         }
     }
 }
