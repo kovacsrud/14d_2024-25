@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfKinekMit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfKinekMit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox ItemsSource="{Binding Items}" HorizontalAlignment="Center">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="500">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Targy}" VerticalAlignment="Center"  FontSize="20" />
+                        <TextBlock Text="{Binding DarabSzam}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Column="1" />
+                        <Image Source="{Binding TargyKepe}" Grid.Column="2" Width="100" Stretch="Fill"/>
+                        <TextBlock Text="{Binding Kinek}" Grid.Row="1" FontSize="20" VerticalAlignment="Center"/>
+                        <Image Source="{Binding KinekKep}" Grid.Row="1" Grid.Column="2" Width="100" Stretch="Fill"/>
+                        <DatePicker SelectedDate="{Binding Datum}" Grid.Row="2" Grid.ColumnSpan="3"/>
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Window>
