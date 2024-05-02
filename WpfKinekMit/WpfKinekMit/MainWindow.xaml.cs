@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using WpfKinekMit.mvvm.model;
 using WpfKinekMit.mvvm.viewmodel;
 using System.IO;
+using WpfKinekMit.mvvm.view;
 
 namespace WpfKinekMit
 {
@@ -45,6 +46,20 @@ namespace WpfKinekMit
 
             vm.AddItem(item1);
             vm.AddItem(item2);
+        }
+
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var vm = DataContext as ItemsViewModel;
+            ModWin modWin = new ModWin(vm);
+            modWin.ShowDialog();
+        }
+
+        private void buttonUj_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as ItemsViewModel;
+            ModWin modWin = new ModWin(vm,true);
+            modWin.ShowDialog();
         }
     }
 }

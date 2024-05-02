@@ -11,6 +11,7 @@ namespace WpfKinekMit.mvvm.viewmodel
     public class ItemsViewModel
     {
         public ObservableCollection<Item> Items { get; set; }=new ObservableCollection<Item>();
+        public Item SelectedItem { get; set; } = new Item();
 
         public void AddItem(Item item)
         {
