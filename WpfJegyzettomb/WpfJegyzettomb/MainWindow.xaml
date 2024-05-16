@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfJegyzettomb.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfJegyzettomb"
+        mc:Ignorable="d"
+        Title="Jegyzettömb" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem FontSize="16" Header="Fájl">
+                <MenuItem x:Name="menuitemMegnyitas" FontSize="16" Header="Megnyitás" Click="menuitemMegnyitas_Click"/>
+                <MenuItem FontSize="16" Header="Mentés" />
+                <MenuItem FontSize="16" Header="Mentés másként" />
+                <MenuItem x:Name="menuitemKilepes" FontSize="16" Header="Kilépés" Click="menuitemKilepes_Click"/>
+            </MenuItem>
+            <MenuItem FontSize="16" Header="Szerkesztés">
+                <MenuItem FontSize="16" Header="Kivágás" />
+                <MenuItem FontSize="16" Header="Másolás" />
+                <MenuItem FontSize="16" Header="Beillesztés" />
+            </MenuItem>
+            <MenuItem FontSize="16" Header="Súgó">
+                <MenuItem x:Name="menuitemNevjegy" FontSize="16" Header="Névjegy" Click="menuitemNevjegy_Click"/>
+            </MenuItem>
+        </Menu>
+        <TextBox x:Name="textboxSzoveg" Grid.Row="1"/>
+
+
+    </Grid>
+</Window>
