@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfJegyzettomb"
         mc:Ignorable="d"
-        Title="Jegyzettömb" Height="450" Width="800">
+        Title="Jegyzettömb" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -19,15 +19,15 @@
                 <MenuItem x:Name="menuitemKilepes" FontSize="16" Header="Kilépés" Click="menuitemKilepes_Click"/>
             </MenuItem>
             <MenuItem FontSize="16" Header="Szerkesztés">
-                <MenuItem x:Name="menuitemKivagas" FontSize="16" Header="Kivágás" Click="menuitemKivagas_Click"/>
-                <MenuItem x:Name="menuitemMasolas" FontSize="16" Header="Másolás" Click="menuitemMasolas_Click"/>
-                <MenuItem x:Name="menuitemBeillesztes" FontSize="16" Header="Beillesztés" Click="menuitemBeillesztes_Click"/>
+                <MenuItem x:Name="menuitemKivagas" FontSize="16" IsEnabled="False" Header="Kivágás" Click="menuitemKivagas_Click"/>
+                <MenuItem x:Name="menuitemMasolas" FontSize="16" IsEnabled="False" Header="Másolás" Click="menuitemMasolas_Click"/>
+                <MenuItem x:Name="menuitemBeillesztes" FontSize="16" IsEnabled="False" Header="Beillesztés" Click="menuitemBeillesztes_Click"/>
             </MenuItem>
             <MenuItem FontSize="16" Header="Súgó">
                 <MenuItem x:Name="menuitemNevjegy" FontSize="16" Header="Névjegy" Click="menuitemNevjegy_Click"/>
             </MenuItem>
         </Menu>
-        <TextBox x:Name="textboxSzoveg" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="textboxSzoveg" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" SelectionChanged="textboxSzoveg_SelectionChanged" TextChanged="textboxSzoveg_TextChanged"/>
 
 
     </Grid>
