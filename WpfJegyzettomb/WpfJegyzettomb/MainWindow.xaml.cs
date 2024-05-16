@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Microsoft.Win32;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -34,7 +36,86 @@ namespace WpfJegyzettomb
 
         private void menuitemMegnyitas_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog dialog= new OpenFileDialog();
+            dialog.Filter = "szöveg (*.txt)|*.txt|csv fájlok|*.csv|weblap|*.html|minden fájl|*.*";
+            if (dialog.ShowDialog()==true)
+            {
+                try
+                {
+                    textboxSzoveg.Text=File.ReadAllText(dialog.FileName,Encoding.UTF7);
+                    this.Title = dialog.FileName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);                    
+                }
+            }
+        }
 
+        private void menuitemMentes_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Title=="Jegyzettömb")
+            {
+                MentesMaskent();
+
+            } else
+            {
+                try
+                {
+                    File.WriteAllText(this.Title, textboxSzoveg.Text, Encoding.UTF8);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            
+        }
+
+        private void MentesMaskent()
+        {
+            SaveFileDialog dialog= new SaveFileDialog();
+            dialog.Filter = "szöveg (*.txt)|*.txt|csv fájlok|*.csv|weblap|*.html|minden fájl|*.*";
+
+            if (dialog.ShowDialog() == true)
+            {
+                try
+                {
+                    File.WriteAllText(dialog.FileName, textboxSzoveg.Text, Encoding.Default);
+                    this.Title=dialog.FileName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
+            }
+
+        }
+
+        private void menuitemMentesMaskent_Click(object sender, RoutedEventArgs e)
+        {
+            MentesMaskent();
+        }
+
+        private void menuitemKivagas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuitemMasolas_Click(object sender, RoutedEventArgs e)
+        {
+            if (textboxSzoveg.SelectedText.Length > 0)
+            {
+                Clipboard.SetText(textboxSzoveg.SelectedText);
+            }
+        }
+
+        private void menuitemBeillesztes_Click(object sender, RoutedEventArgs e)
+        {
+            var vagolapSzoveg=Clipboard.GetText();
+            textboxSzoveg.Text = textboxSzoveg.Text.Insert(textboxSzoveg.CaretIndex,vagolapSzoveg);
         }
     }
 }
