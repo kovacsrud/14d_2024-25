@@ -1,4 +1,6 @@
-﻿namespace Kutyak
+﻿using System.Text;
+
+namespace Kutyak
 {
     internal class Program
     {
@@ -59,6 +61,38 @@
             var maxLeterhelt = rendelesek_kutyanevek_kutyafajtak.ToLookup(x=>new {x.UtolsoEll.Year,x.UtolsoEll.Month,x.UtolsoEll.Day }).OrderByDescending(x=>x.Count());
 
             Console.WriteLine($"A legtöbben voltak:{maxLeterhelt.First().Key.Year}.{maxLeterhelt.First().Key.Month}.{maxLeterhelt.First().Key.Day}, {maxLeterhelt.First().Count()} kutya ellátva");
+
+            //2018.01.10-én fajtánként hány kutya volt a rendelőben?
+            var adottNap = rendelesek_kutyanevek_kutyafajtak.Where(x => x.UtolsoEll == new DateTime(2018,1,10));
+
+            var adottNapStat = adottNap.ToLookup(x=>x.FajtaNev);
+
+            foreach (var i in adottNapStat)
+            {
+                Console.WriteLine($"{i.Key} - {i.Count()}");
+            }
+
+            var nevStat = rendelesek_kutyanevek_kutyafajtak.ToLookup(x => x.KutyaNev).OrderByDescending(x=>x.Count());
+
+            try
+            {
+                FileStream fajl = new FileStream("nevstatisztika.txt", FileMode.Create);
+
+                using (StreamWriter writer=new StreamWriter(fajl,Encoding.Default))
+                {
+                    foreach (var i in nevStat)
+                    {
+                        writer.WriteLine($"{i.Key};{i.Count()}");
+                    }
+                }
+
+                Console.WriteLine("Fájlba írás kész!");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
 
         }
