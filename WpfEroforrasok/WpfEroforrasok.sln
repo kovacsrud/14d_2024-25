@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfEroforrasok", "WpfEroforrasok\WpfEroforrasok.csproj", "{E82674EB-35C4-4C21-92A6-DC8DFA36C3D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E82674EB-35C4-4C21-92A6-DC8DFA36C3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E82674EB-35C4-4C21-92A6-DC8DFA36C3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E82674EB-35C4-4C21-92A6-DC8DFA36C3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E82674EB-35C4-4C21-92A6-DC8DFA36C3D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6426373-4739-44B3-8AAD-9DBAA69BE50A}
+	EndGlobalSection
+EndGlobal
