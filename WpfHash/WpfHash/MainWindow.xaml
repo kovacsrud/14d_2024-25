@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfHash.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfHash"
+        mc:Ignorable="d"
+        Title="Hash" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Szöveg a hash-hez:" FontSize="26"  VerticalAlignment="Bottom" Margin="3"/>
+        <TextBox x:Name="textboxSzoveg" TextWrapping="Wrap" FontSize="24"  Grid.Row="1" TextChanged="textboxSzoveg_TextChanged"/>
+        <TextBox x:Name="textboxHash" IsReadOnly="True" FontSize="24" Grid.Row="2"/>
+        <WrapPanel Grid.Row="3" VerticalAlignment="Center">
+            <TextBlock Text="Fájl a hash-hez:" FontSize="26"  VerticalAlignment="Bottom" Margin="3" />
+            <Button x:Name="buttonTallozas" Content="Tallózás" Click="buttonTallozas_Click" />
+        </WrapPanel>
+        <TextBox x:Name="textboxFileHash" IsReadOnly="True" FontSize="24" Grid.Row="4"/>
+
+
+    </Grid>
+</Window>
