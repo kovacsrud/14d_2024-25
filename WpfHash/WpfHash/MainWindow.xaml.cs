@@ -27,7 +27,7 @@ namespace WpfHash
         {
             try
             {
-                textboxHash.Text = hash.Md5Hash(textboxSzoveg.Text);
+                textboxHash.Text = hash.SHA1Hash(textboxSzoveg.Text);
             }
             catch (Exception ex)
             {

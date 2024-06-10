@@ -12,7 +12,9 @@ namespace WpfHash
     {
         public string Md5Hash(string szoveg)
         {
-            MD5CryptoServiceProvider md5Hash = new MD5CryptoServiceProvider();
+            //MD5CryptoServiceProvider md5Hash = new MD5CryptoServiceProvider();
+
+            HashAlgorithm md5Hash = MD5.Create();
 
             byte[] data=null;
 
@@ -30,6 +32,32 @@ namespace WpfHash
             //byte[] 
 
             return ByteToHash(md5Hash.ComputeHash(data));
+        }
+
+        public string SHA1Hash(string szoveg)
+        {
+            //SHA1CryptoServiceProvider sha1Hash= new SHA1CryptoServiceProvider();
+
+            HashAlgorithm sha1Hash = SHA1.Create();
+
+            byte[] data = null;
+
+            if (File.Exists(szoveg))
+            {
+                //Fájl betöltés és hash
+                data = File.ReadAllBytes(szoveg);
+
+            }
+            else
+            {
+                //Szövegből hash
+                data = new UTF8Encoding().GetBytes(szoveg);
+            }
+
+            //byte[] 
+
+            return ByteToHash(sha1Hash.ComputeHash(data));
+
         }
 
         private string ByteToHash(byte[] data)
