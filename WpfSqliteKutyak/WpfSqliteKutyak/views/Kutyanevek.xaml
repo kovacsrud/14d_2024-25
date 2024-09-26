@@ -10,9 +10,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="datagridKutyanevek" ColumnWidth="*" IsReadOnly="True" MouseDoubleClick="datagridKutyanevek_MouseDoubleClick"/>
         <Button x:Name="buttonUjKutyanev" Content="Új kutyanév" FontSize="26" Grid.Row="1" Width="200" Height="40" Click="buttonUjKutyanev_Click"/>
+        <Button x:Name="buttonTorolKutyanev" Content="Törlés" FontSize="26" Grid.Row="2" Width="200" Height="40" Click="buttonTorolKutyanev_Click"/>
 
     </Grid>
 </Window>

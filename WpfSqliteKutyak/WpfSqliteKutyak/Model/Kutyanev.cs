@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfSqliteKutyak
+namespace WpfSqliteKutyak.Model
 {
     public class Kutyanev
     {

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfSqliteKutyak.Model;
 
 namespace WpfSqliteKutyak.views
 {
@@ -22,14 +23,19 @@ namespace WpfSqliteKutyak.views
     {
         bool modosit = false;
         //private string connectionString = "Data Source=kutyak.db";
-        public EditKutyanev()
+        Kutyanevek kutyanevekWin;
+
+        //Dependency injection
+        public EditKutyanev(Kutyanevek kutynevekWin)
         {
             InitializeComponent();
+            this.kutyanevekWin = kutynevekWin;
         }
 
-        public EditKutyanev(Kutyanev kutyanev)
+        public EditKutyanev(Kutyanev kutyanev,Kutyanevek kutynevekWin)
         {
             InitializeComponent();
+            this.kutyanevekWin = kutynevekWin;
             textblockCim.Text = "Módosítás";
             textboxId.Text = kutyanev.Id.ToString();
             textboxKutyanev.Text = kutyanev.KutyaNev;
@@ -37,72 +43,25 @@ namespace WpfSqliteKutyak.views
 
         }
 
-        private void UjKutyanev()
-        {
-            try
-            {
-                using (SQLiteConnection connection = new SQLiteConnection(DbTools.connectionString))
-                {
-                    connection.Open();
-                    string insertCommand = "insert into kutyanevek (kutyanev) values(@kutyanev)";
-
-                    using (SQLiteCommand command=new SQLiteCommand(insertCommand,connection))
-                    {
-                        command.Parameters.AddWithValue("@kutyanev", textboxKutyanev.Text);
-                        var sorok=command.ExecuteNonQuery();
-                        MessageBox.Show($"Beszúrva:{sorok} sor.");
-                    }
-
-                    connection.Close();
-                }
-            }
-            catch (SQLiteException sqlex) {
-                MessageBox.Show($"Adatbázis hiba:{sqlex.Message}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ModositKutyanev()
-        {
-            try
-            {
-                using (SQLiteConnection connection = new SQLiteConnection(DbTools.connectionString))
-                {
-                    connection.Open();
-                    string insertCommand = "update kutyanevek set kutyanev=@kutyanev where Id=@id";
-
-                    using (SQLiteCommand command = new SQLiteCommand(insertCommand, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", textboxId.Text);
-                        command.Parameters.AddWithValue("@kutyanev", textboxKutyanev.Text);
-                        var sorok = command.ExecuteNonQuery();
-                        MessageBox.Show($"Módosítva:{sorok} sor.");
-                    }
-
-                    connection.Close();
-                }
-            }
-            catch (SQLiteException sqlex)
-            {
-                MessageBox.Show($"Adatbázis hiba:{sqlex.Message}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+       
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
             if (modosit)
             {
-                ModositKutyanev();
+                Kutyanev kutyanev = new Kutyanev();
+                kutyanev.Id = Convert.ToInt32(textboxId.Text); ;
+                kutyanev.KutyaNev = textboxKutyanev.Text;
+
+                DbRepo.ModositKutyanev(kutyanev);
+                
+                kutyanevekWin.datagridKutyanevek.ItemsSource=DbRepo.GetKutyanevek();
+
             } else
             {
-                UjKutyanev();
+
+                DbRepo.UjKutyanev(new Kutyanev { KutyaNev=textboxKutyanev.Text });
+                kutyanevekWin.datagridKutyanevek.ItemsSource = DbRepo.GetKutyanevek();
             }
         }
     }

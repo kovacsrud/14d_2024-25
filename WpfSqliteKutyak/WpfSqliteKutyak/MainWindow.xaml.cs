@@ -35,5 +35,16 @@ namespace WpfSqliteKutyak
             Kutyanevek kutyanevek = new Kutyanevek();
             kutyanevek.ShowDialog();
         }
+
+        private void menuitemRendeles_Click(object sender, RoutedEventArgs e)
+        {
+            Rendelesek rendelesek = new Rendelesek();
+            rendelesek.ShowDialog();
+        }
+
+        private void menuitemKutyafajtak_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

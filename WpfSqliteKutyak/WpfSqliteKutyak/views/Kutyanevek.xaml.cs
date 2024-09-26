@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfSqliteKutyak.Model;
 
 namespace WpfSqliteKutyak.views
 {
@@ -24,60 +25,37 @@ namespace WpfSqliteKutyak.views
         public Kutyanevek()
         {
             InitializeComponent();
-            datagridKutyanevek.ItemsSource = GetKutyanevek();
+            datagridKutyanevek.ItemsSource = DbRepo.GetKutyanevek();
         }
 
-        private List<Kutyanev> GetKutyanevek()
-        {
-            List<Kutyanev> kutyanevek = new List<Kutyanev>();
 
-            try
-            {
-                using (SQLiteConnection connection = new SQLiteConnection(DbTools.connectionString))
-                {
-                    connection.Open();
-                    string sqlCommand = "select * from kutyanevek";
-
-                    using (SQLiteCommand command = new SQLiteCommand(sqlCommand, connection))
-                    {
-                        using (SQLiteDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Kutyanev kutyanev = new Kutyanev();
-
-                                kutyanev.Id = Convert.ToInt32(reader["Id"]);
-                                kutyanev.KutyaNev = reader["kutyanev"].ToString();
-
-                                kutyanevek.Add(kutyanev);
-
-                            }
-                        }
-
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-
-            return kutyanevek;
-        }
 
         private void buttonUjKutyanev_Click(object sender, RoutedEventArgs e)
         {
-            EditKutyanev editKutyanev= new EditKutyanev();
+            EditKutyanev editKutyanev= new EditKutyanev(this);
             editKutyanev.ShowDialog();
         }
 
         private void datagridKutyanevek_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var aktKutyanev=datagridKutyanevek.SelectedItem as Kutyanev;
-            EditKutyanev editKutyanev = new EditKutyanev(aktKutyanev);
+            EditKutyanev editKutyanev = new EditKutyanev(aktKutyanev,this);
             editKutyanev.ShowDialog();
+        }
+
+        private void buttonTorolKutyanev_Click(object sender, RoutedEventArgs e)
+        {
+            var aktKutyanev = datagridKutyanevek.SelectedItem as Kutyanev;
+
+            var valasz = MessageBox.Show("Biztosan törli?", "Törlés", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+
+            if(valasz == MessageBoxResult.OK)
+            {
+                DbRepo.TorolKutyanev(aktKutyanev);
+                datagridKutyanevek.ItemsSource = DbRepo.GetKutyanevek();
+            }
+
+
         }
     }
 }
