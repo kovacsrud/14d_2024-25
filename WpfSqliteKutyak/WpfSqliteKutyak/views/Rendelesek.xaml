@@ -21,7 +21,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="buttonUjRendeles" Content="Új rendelési adat" Width="200" Height="30" FontSize="20" Grid.Row="1" Click="buttonUjRendeles_Click"/>
-        <Button x:Name="buttonTorolRendeles" Content="Törlés" Width="200" Height="30" FontSize="20" Grid.Row="2"/>
+        <Button x:Name="buttonTorolRendeles" Content="Törlés" Width="200" Height="30" FontSize="20" Grid.Row="2" Click="buttonTorolRendeles_Click"/>
 
 
 

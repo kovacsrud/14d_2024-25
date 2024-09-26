@@ -28,15 +28,32 @@ namespace WpfSqliteKutyak.views
 
         private void buttonUjRendeles_Click(object sender, RoutedEventArgs e)
         {
-            EditRendeles editRendeles = new EditRendeles();
+            EditRendeles editRendeles = new EditRendeles(this);
             editRendeles.ShowDialog();
         }
 
         private void datagridRendelesek_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var aktRendeles=datagridRendelesek.SelectedItem as Rendeles;
-            EditRendeles editRendeles=new EditRendeles(aktRendeles);
+            EditRendeles editRendeles=new EditRendeles(aktRendeles,this);
             editRendeles.ShowDialog();
+        }
+
+        private void buttonTorolRendeles_Click(object sender, RoutedEventArgs e)
+        {
+            var aktRendeles = datagridRendelesek.SelectedItem as Rendeles;
+            var valasz = MessageBox.Show("Biztosan törli?", "Törlés", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+
+            if (valasz == MessageBoxResult.OK)
+            {
+                DbRepo.TorolRendeles(aktRendeles);
+                datagridRendelesek.ItemsSource = DbRepo.GetRendelesiAdatok();
+            }
+
+
+
+
+            
         }
     }
 }

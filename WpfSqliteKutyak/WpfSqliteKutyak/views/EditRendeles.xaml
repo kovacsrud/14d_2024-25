@@ -15,7 +15,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="textboxFelirat" Text="Új rendelési adat rögzítése" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <TextBlock x:Name="textboxFelirat" Text="Új rendelési adat rögzítése" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" />
         <ComboBox x:Name="comboKutyanev" DisplayMemberPath="KutyaNev" SelectedValuePath="Id" Width="200" Height="30" FontSize="20" Grid.Row="1" SelectionChanged="comboKutyanev_SelectionChanged"/>
         <ComboBox x:Name="comboKutyafajta" DisplayMemberPath="FajtaNev" SelectedValuePath="Id" Width="200" Height="30" FontSize="20" Grid.Row="2"/>
         <TextBox x:Name="textblockEletkor" Width="300" Height="40" FontSize="24" Grid.Row="3"/>

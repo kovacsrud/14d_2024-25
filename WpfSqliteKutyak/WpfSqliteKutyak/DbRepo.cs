@@ -141,6 +141,36 @@ namespace WpfSqliteKutyak
             }
         }
 
+        public static void TorolRendeles(Rendeles rendeles)
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(DbTools.connectionString))
+                {
+                    connection.Open();
+                    string insertCommand = "delete from kutya where Id=@id";
+
+                    using (SQLiteCommand command = new SQLiteCommand(insertCommand, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", rendeles.Id);
+
+                        var sorok = command.ExecuteNonQuery();
+                        MessageBox.Show($"Törölve:{sorok} sor.");
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (SQLiteException sqlex)
+            {
+                MessageBox.Show($"Adatbázis hiba:{sqlex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public static List<Rendeles> GetRendelesiAdatok()
         {
             List<Rendeles> rendelesLista = new List<Rendeles>();

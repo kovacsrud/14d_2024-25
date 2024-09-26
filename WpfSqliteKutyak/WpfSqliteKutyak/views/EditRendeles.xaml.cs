@@ -23,19 +23,23 @@ namespace WpfSqliteKutyak.views
     {
         bool modosit=false;
         int modositId;
-        public EditRendeles()
+        Rendelesek rendelesWin;
+        public EditRendeles(Rendelesek rendelesWin)
         {
             InitializeComponent();
             comboKutyanev.ItemsSource = DbRepo.GetKutyanevek();
             comboKutyanev.SelectedIndex = 0;
             comboKutyafajta.ItemsSource = DbRepo.GetKutyafajtak();
             comboKutyafajta.SelectedIndex = 0;
+            this.rendelesWin = rendelesWin;
         }
 
-        public EditRendeles(Rendeles rendeles)
+        public EditRendeles(Rendeles rendeles,Rendelesek rendelesWin)
         {
             InitializeComponent();
             modosit = true;
+            textboxFelirat.Text = "Rendelési adat módosítása";
+            this.Title = "Rendelési adat módosítása";
             modositId = rendeles.Id;
             comboKutyanev.ItemsSource = DbRepo.GetKutyanevek();
             comboKutyanev.SelectedValue=rendeles.NevId;      
@@ -45,7 +49,7 @@ namespace WpfSqliteKutyak.views
 
             textblockEletkor.Text=rendeles.Eletkor.ToString();
             textblockUtolsoEll.Text = rendeles.UtolsoEll;
-            
+            this.rendelesWin = rendelesWin;
 
         }
 
@@ -64,6 +68,7 @@ namespace WpfSqliteKutyak.views
                     rendeles.UtolsoEll = textblockUtolsoEll.Text; ;
 
                     DbRepo.ModositRendelesiAdat(rendeles);
+                    rendelesWin.datagridRendelesek.ItemsSource=DbRepo.GetRendelesiAdatok();
 
                 }
                 else
@@ -75,6 +80,7 @@ namespace WpfSqliteKutyak.views
                     rendeles.UtolsoEll = textblockUtolsoEll.Text; ;
 
                     DbRepo.UjRendelesiAdat(rendeles);
+                    rendelesWin.datagridRendelesek.ItemsSource = DbRepo.GetRendelesiAdatok();
                 }
 
             }
