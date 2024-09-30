@@ -34,7 +34,9 @@ namespace WpfKutyakUniqueEF.mvvm.views
 
         private void buttonUj_Click(object sender, RoutedEventArgs e)
         {
-
+            var vm = DataContext as KutyaViewModel;
+            UjRendelesiAdatView ujRendelesiAdat = new UjRendelesiAdatView(vm);
+            ujRendelesiAdat.ShowDialog();
         }
     }
 }
