@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiNavigacio.mvvm.views.MiddlePage"
+             Title="MiddlePage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Middle Page"
+            FontSize="Large"
+            TextColor="BurlyWood"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <Button x:Name="buttonTovabb" Text="Tovább"  Clicked="buttonTovabb_Clicked"/>
+        <Button x:Name="buttonVissza" Text="Vissza" Clicked="buttonVissza_Clicked"/>
+    </VerticalStackLayout>
+    
+</ContentPage>
