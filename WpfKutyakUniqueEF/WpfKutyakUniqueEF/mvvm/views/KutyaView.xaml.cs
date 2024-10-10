@@ -38,5 +38,24 @@ namespace WpfKutyakUniqueEF.mvvm.views
             UjRendelesiAdatView ujRendelesiAdat = new UjRendelesiAdatView(vm);
             ujRendelesiAdat.ShowDialog();
         }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var vm = DataContext as KutyaViewModel;
+            UjRendelesiAdatView modositRendelesiAdat = new UjRendelesiAdatView(vm, true);
+            modositRendelesiAdat.ShowDialog();
+        }
+
+        private void buttonTorles_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as KutyaViewModel;
+            var valasz = MessageBox.Show("Biztosan törli?", "Törlés", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (valasz == MessageBoxResult.OK && vm.SelectedKutya!=null)
+            {
+                
+                vm.Kutyak.Remove(vm.SelectedKutya);
+                vm.DbMentes();
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@
         <TextBox Text="{Binding AktKutya.Utolsoell}" Width="300" Height="40" FontSize="30" Grid.Row="1"/>
         <ComboBox ItemsSource="{Binding KutyaViewModel.Kutyanevek}" SelectedIndex="0" DisplayMemberPath="Kutyanev" SelectedValuePath="Id" SelectedItem="{Binding AktKutya.Nev}" SelectedValue="{Binding AktKutya.Nevid}" Width="300" Height="40" FontSize="30" Grid.Row="2" />
         <ComboBox ItemsSource="{Binding KutyaViewModel.Kutyafajtak}"  SelectedIndex="0" DisplayMemberPath="Nev" SelectedValuePath="Id" SelectedItem="{Binding AktKutya.Fajta}" SelectedValue="{Binding AktKutya.Fajtaid}" Width="300" Height="40" FontSize="30" Grid.Row="3"/>
-        <Button x:Name="buttonUj" Content="Új rendelési adat" FontSize="14" Height="40" Width="150" Grid.Row="4" Click="buttonUj_Click"/>
+        <Button x:Name="buttonUj" Content="Mentés" FontSize="14" Height="40" Width="150" Grid.Row="4" Click="buttonUj_Click"/>
 
 
     </Grid>

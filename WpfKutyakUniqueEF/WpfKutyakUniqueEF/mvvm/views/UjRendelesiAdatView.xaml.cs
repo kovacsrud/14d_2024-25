@@ -24,18 +24,31 @@ namespace WpfKutyakUniqueEF.mvvm.views
     public partial class UjRendelesiAdatView : Window
     {
         public Kutya AktKutya { get; set; } = new Kutya();
+        bool modosit=false;
         public KutyaViewModel KutyaViewModel { get; set; }
-        public UjRendelesiAdatView(KutyaViewModel vm)
+        public UjRendelesiAdatView(KutyaViewModel vm,bool modosit=false)
         {
             InitializeComponent();
+            this.modosit=modosit;
             KutyaViewModel = vm;
             DataContext = this;
+            if (modosit)
+            {
+                AktKutya=KutyaViewModel.SelectedKutya;
+            }
+            
         }
 
         private void buttonUj_Click(object sender, RoutedEventArgs e)
         {
-            KutyaViewModel.Kutyak.Add(AktKutya);
-            KutyaViewModel.DbMentes();
+            if (modosit) {
+                KutyaViewModel.DbMentes();
+            } else
+            {
+                KutyaViewModel.Kutyak.Add(AktKutya);
+                KutyaViewModel.DbMentes();
+            }
+            
         }
     }
 }
