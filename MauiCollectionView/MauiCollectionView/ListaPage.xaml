@@ -6,10 +6,10 @@
 
     <Border Margin="10" VerticalOptions="FillAndExpand" Stroke="{StaticResource Vilagoszold}" BackgroundColor="{StaticResource Kozepzold}" StrokeShape="RoundRectangle 40,0,0,40">
         
-        <Grid RowDefinitions=".1*,.2*,.7*">
+        <Grid RowDefinitions=".1*,.2*,.5*,.2*">
             <Label Text="Erőforrások" FontSize="Header" FontFamily="Mistral" HorizontalOptions="Center" />
             <Image Source="focus.jpg" Grid.Row="1" Margin="10"/>
-            <CollectionView ItemsSource="{Binding .}" SelectionMode="Single" HorizontalOptions="Center" EmptyView="A lista üres!"  Grid.Row="2">
+            <CollectionView x:Name="collectionHegyek" ItemsSource="{Binding .}" SelectionMode="Single" HorizontalOptions="Center" EmptyView="A lista üres!"  Grid.Row="2">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border Stroke="{StaticResource Voros}" BackgroundColor="{StaticResource Krem}" StrokeShape="RoundRectangle 10,10,10,10">
@@ -22,6 +22,11 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <VerticalStackLayout Grid.Row="3">
+                <Entry x:Name="entryMagassag" />
+                <Button x:Name="buttonSzur" Text="Szűrés" Clicked="buttonSzur_Clicked"/>
+                <Button x:Name="buttonVissza" Text="Összes adat" Clicked="buttonVissza_Clicked"/>
+            </VerticalStackLayout>
 
         </Grid>
     </Border>
