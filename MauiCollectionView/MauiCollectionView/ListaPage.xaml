@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCollectionView.ListaPage"
+             Title="ListaPage" BackgroundColor="{StaticResource Sotetzold}">
+
+    <Border Margin="10" VerticalOptions="FillAndExpand" Stroke="{StaticResource Vilagoszold}" BackgroundColor="{StaticResource Kozepzold}" StrokeShape="RoundRectangle 40,0,0,40">
+        
+        <Grid RowDefinitions=".1*,.2*,.7*">
+            <Label Text="Erőforrások" FontSize="Header" FontFamily="Mistral" HorizontalOptions="Center" />
+            <Image Source="focus.jpg" Grid.Row="1" Margin="10"/>
+            <CollectionView ItemsSource="{Binding .}" SelectionMode="Single" HorizontalOptions="Center" EmptyView="A lista üres!"  Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="{StaticResource Voros}" BackgroundColor="{StaticResource Krem}" StrokeShape="RoundRectangle 10,10,10,10">
+                        <Grid ColumnDefinitions="*,*,*">
+                            <Label Text="{Binding HegyCsucsNeve}" VerticalOptions="Center"/>
+                            <Label Text="{Binding Hegyseg}"  Grid.Column="1"  VerticalOptions="Center"/>
+                            <Label Text="{Binding Magassag}" Grid.Column="2" VerticalOptions="Center"/>
+                        </Grid>
+                        </Border>    
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </Border>
+    
+    
+    
+   
+</ContentPage>
