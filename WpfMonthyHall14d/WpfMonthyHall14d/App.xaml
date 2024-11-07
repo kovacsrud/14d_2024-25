@@ -1,0 +1,21 @@
+﻿<Application x:Class="WpfMonthyHall14d.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfMonthyHall14d"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="sotet1" Color="#1B2845"/>
+        <SolidColorBrush x:Key="sotet2" Color="#274060"/>
+        <SolidColorBrush x:Key="sotet3" Color="#335C81"/>
+        <SolidColorBrush x:Key="vilagos1" Color="#5899E2"/>
+        <SolidColorBrush x:Key="vilagos2" Color="#65AFFF"/>
+
+        <Color x:Key="Sotet1">#1B2845</Color>
+        <Color x:Key="Sotet2">#274060</Color>
+        <Color x:Key="Sotet3">#335C81</Color>
+        <Color x:Key="Vilagos1">#5899E2</Color>
+        <Color x:Key="Vilagos2">#65AFFF</Color>
+        
+
+    </Application.Resources>
+</Application>
