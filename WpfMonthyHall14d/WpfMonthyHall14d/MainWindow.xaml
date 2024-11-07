@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:WpfMonthyHall14d"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" AllowsTransparency="True" WindowStyle="None">
+        Title="MainWindow" Height="650" Width="800" AllowsTransparency="True" WindowStyle="None">
     <Window.Background>
-        <SolidColorBrush Color="{StaticResource Vilagos2}" Opacity=".3"/>
+        <SolidColorBrush Color="{StaticResource Vilagos2}" Opacity="0"/>
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
@@ -18,6 +18,12 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -30,7 +36,7 @@
                 <SolidColorBrush Color="{StaticResource Sotet1}" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="rectMain" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" RadiusX="20" RadiusY="20" Margin="4">
+        <Rectangle x:Name="rectMain" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" RadiusX="20" RadiusY="20" Margin="4">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                     <GradientStop Color="{StaticResource Sotet3}" Offset="0"/>
@@ -38,12 +44,17 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="rectGombok" Grid.ColumnSpan="3" Grid.Row="4" RadiusX="20" RadiusY="20" Margin="5,0,5,0">
+        <Rectangle x:Name="rectGombok" Grid.ColumnSpan="3" Grid.Row="6" Grid.RowSpan="2" RadiusX="20" RadiusY="20" Margin="5,0,5,0">
             <Rectangle.Fill>
                 <SolidColorBrush Color="{StaticResource Sotet2}" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="rectStat" Grid.ColumnSpan="3" Grid.Row="5" RadiusX="20" RadiusY="20" Margin="4">
+        <Rectangle x:Name="rectNew" Grid.ColumnSpan="3" Grid.Row="8" Grid.RowSpan="2" RadiusX="20" RadiusY="20" Margin="4">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{StaticResource Sotet3}" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="rectStat" Grid.ColumnSpan="3" Grid.Row="10" RadiusX="20" RadiusY="20" Margin="4">
             <Rectangle.Fill>
                 <SolidColorBrush Color="{StaticResource Sotet3}" />
             </Rectangle.Fill>
@@ -53,6 +64,56 @@
             <fa:FontAwesome x:Name="maxGomb" Icon="WindowMaximize" FontSize="35" Foreground="{StaticResource vilagos2}" Margin="0,0,5,0" MouseLeftButtonDown="maxGomb_MouseLeftButtonDown"/>
             <fa:FontAwesome x:Name="closeGomb" Icon="WindowClose" FontSize="35" Foreground="{StaticResource vilagos2}" Margin="0,0,15,0" MouseLeftButtonDown="closeGomb_MouseLeftButtonDown"/>
         </WrapPanel>
+        <Button Style="{DynamicResource JatekGomb}" x:Name="ajto1" Content="1.ajtó" Grid.Row="6" Grid.RowSpan="2" Width="200" FontSize="22" Foreground="{StaticResource vilagos2}"  Height="40" Click="buttonClick"/>
+        <Button Style="{DynamicResource JatekGomb}" x:Name="ajto2" Content="2.ajtó" Grid.Row="6" Grid.RowSpan="2" Grid.Column="1" Width="200" FontSize="22" Height="40" Foreground="{StaticResource vilagos2}" Click="buttonClick"/>
+        <Button Style="{DynamicResource JatekGomb}" x:Name="ajto3" Content="3.ajtó" Grid.Row="6" Grid.RowSpan="2" Grid.Column="2" Width="200" FontSize="22" Height="40" Foreground="{StaticResource vilagos2}" Click="buttonClick"/>
+
+        <Button Style="{DynamicResource JatekGomb}" x:Name="newGame" Content="Új játék" Grid.Row="8" Grid.RowSpan="2" Grid.Column="2" Width="200" FontSize="22" Height="40" Foreground="{StaticResource vilagos2}" Click="newGame_Click"/>
+        <TextBlock Text="{Binding GameStatus}" FontSize="30" Foreground="{StaticResource vilagos2}" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+
+        <Image Source="{Binding Door1.FrontImage.Source}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="5"  Margin="5"/>
+        <Image Source="{Binding Door2.FrontImage.Source}" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" Margin="5"/>
+        <Image Source="{Binding Door3.FrontImage.Source}" Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" Margin="5"/>
+
+        <Grid Grid.Row="10" Grid.ColumnSpan="3" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Nyertes játék" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Nyertes játék cserével" Grid.Row="1" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Nyertes játék csere nélkül" Grid.Row="2" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Vesztes játék" Grid.Row="3" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Vesztes játék cserével" Grid.Row="4" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Vesztes játék csere nélkül" Grid.Row="5" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="{Binding Win}" Grid.Row="0" Grid.Column="1" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding WinWithChange}" Grid.Row="1" Grid.Column="1" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding WinWithoutChange}" Grid.Row="2" Grid.Column="1" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Lose}" Grid.Row="3" Grid.Column="1" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding LoseWithChange}" Grid.Row="4" Grid.Column="1" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding LoseWithoutChange}" Grid.Row="5" Grid.Column="1" Foreground="{StaticResource vilagos2}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+
+
+
+
+
+
+
+
+        </Grid>
 
     </Grid>
 </Window>
