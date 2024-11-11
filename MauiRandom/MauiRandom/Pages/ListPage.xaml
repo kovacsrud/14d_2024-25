@@ -7,7 +7,38 @@
     <Border VerticalOptions="FillAndExpand" Margin="10" Stroke="{StaticResource RuStroke}" BackgroundColor="{StaticResource RuHatter}" StrokeThickness="2" StrokeShape="RoundRectangle 0,40,40,0">
         <Grid RowDefinitions=".2*,.7*,.1*">
             <Label Text="A felhasználók adatai:" TextColor="White" FontFamily="NexaHeavy" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <CollectionView x:Name="collectionUsers">
+            <CollectionView x:Name="collectionUsers" Grid.Row="1" SelectionMode="Single" SelectionChanged="collectionUsers_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="2" BackgroundColor="{StaticResource RuStroke}" StrokeShape="RoundRectangle 80,80,80,80">
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal"></VisualState>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Black"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            
+                            
+
+                            <Grid ColumnDefinitions=".3*,.7*">
+                                <Border HorizontalOptions="Start" WidthRequest="80" StrokeShape="RoundRectangle 80,80,80,80" Margin="5">
+                                    <Image WidthRequest="80" HeightRequest="80" Source="{Binding picture.large}"/>
+                                </Border>
+                                <HorizontalStackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start">
+                                    <Label Text="{Binding name.title}" FontSize="18" FontFamily="NexaHeavy"                                  Margin="0,0,2,0"  TextColor="White"/>
+                                    <Label Text="{Binding name.first}" FontSize="18" FontFamily="NexaHeavy"                                  Margin="0,0,2,0"  TextColor="White"/>
+                                    <Label Text="{Binding name.last}" FontSize="18" FontFamily="NexaHeavy"                                  Margin="0,0,2,0"  TextColor="White"/>
+                                </HorizontalStackLayout>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
 
             </CollectionView>
             <Button x:Name="buttonGetData" Text="Letöltés" BackgroundColor="{StaticResource RuButtonBg}" FontFamily="NexaHeavy" Grid.Row="2" Clicked="buttonGetData_Clicked"/>
