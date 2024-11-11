@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiRandom.Pages.ListPage"
+             Title="ListPage" BackgroundColor="{StaticResource RuHatter}" NavigationPage.HasNavigationBar="False">
+
+    <Border VerticalOptions="FillAndExpand" Margin="10" Stroke="{StaticResource RuStroke}" BackgroundColor="{StaticResource RuHatter}" StrokeThickness="2" StrokeShape="RoundRectangle 0,40,40,0">
+        <Grid RowDefinitions=".2*,.7*,.1*">
+            <Label Text="A felhasználók adatai:" TextColor="White" FontFamily="NexaHeavy" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <CollectionView x:Name="collectionUsers">
+
+            </CollectionView>
+            <Button x:Name="buttonGetData" Text="Letöltés" BackgroundColor="{StaticResource RuButtonBg}" FontFamily="NexaHeavy" Grid.Row="2" Clicked="buttonGetData_Clicked"/>
+
+        </Grid>
+
+
+    </Border>
+
+</ContentPage>

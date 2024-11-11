@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiRandom.Pages.StartPage1"
+             Title="StartPage1" BackgroundColor="{StaticResource RuHatter}" NavigationPage.HasNavigationBar="False">
+
+    <Border VerticalOptions="FillAndExpand" Margin="10" Stroke="{StaticResource RuStroke}" BackgroundColor="{StaticResource RuHatter}" StrokeShape="RoundRectangle 0,40,40,0">
+        <Grid RowDefinitions=".3*,.6*,.1*">
+            <Label Text="RandomUser" TextColor="White" FontSize="24" FontFamily="NexaLight" HorizontalOptions="Center" VerticalOptions="End"/>
+            <Label Grid.Row="1" Text=".ME" FontSize="76" TextColor="White" FontFamily="NexaHeavy" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button x:Name="buttonStart" Grid.Row="2" Text="Tovább" TextColor="White" BackgroundColor="{StaticResource RuButtonBg}" FontFamily="NexaHeavy" Clicked="buttonStart_Clicked"/>
+
+        </Grid>
+    </Border>
+    
+</ContentPage>
