@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiJegyzet.mvvm.view.JegyzetView"
+             Title="Jegyzet">
+    <VerticalStackLayout VerticalOptions="Center">
+        <Label 
+            Text="Jegyzet App"
+            FontSize="30"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <CollectionView x:Name="collectionJegyzetek" ItemsSource="{Binding Jegyzetek}" SelectedItem="{Binding AktualisJegyzet}" SelectionMode="Single" EmptyView="Nincsenek Jegyzetek">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="LightBlue" StrokeShape="RoundRectangle 5,5,5,5" Margin="5" Padding="5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Cim}"/>
+                            <Label Text="{Binding Szoveg}"/>
+                            <DatePicker Date="{Binding Datum}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        <Entry x:Name="entryCim" Margin="20,5,20,5" Placeholder="Jegyzet címe" Text="{Binding AktualisJegyzet.Cim}"/>
+        <Entry x:Name="entrySzoveg" Margin="20,5,20,5" Placeholder="Jegyzet szövege" Text="{Binding AktualisJegyzet.Szoveg}"/>
+        
+
+        <Button x:Name="buttonUj" Text="Új jegyzet" Margin="0,5,0,0" WidthRequest="200" Clicked="buttonUj_Clicked"/>
+        <Button x:Name="buttonModosit" Text="Módosítás" Margin="0,5,0,0" WidthRequest="200" Clicked="buttonModosit_Clicked"/>
+        <Button x:Name="buttonTorol" Text="Törlés" Margin="0,5,0,0" WidthRequest="200" Clicked="buttonTorol_Clicked"/>
+        
+    </VerticalStackLayout>
+</ContentPage>
