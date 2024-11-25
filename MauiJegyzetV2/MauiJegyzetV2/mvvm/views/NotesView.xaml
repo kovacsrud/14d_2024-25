@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiJegyzetV2.mvvm.views.NotesView"
+             Title="NotesView">
+
+    <Grid RowDefinitions=".2*,.6*,.2*">
+        <Label Text="Jegyzetek" FontSize="26" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <CollectionView ItemsSource="{Binding Notes}" SelectionMode="Single" SelectedItem="{Binding CurrentNote}" EmptyView="Nincsenek jegyzetek" Grid.Row="1" VerticalOptions="Start">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="BurlyWood" StrokeShape="RoundRectangle 5,5,5,5" Margin="5" Padding="5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="{Binding NoteText}" />
+                            <Label Text="{Binding Date}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        <VerticalStackLayout Grid.Row="2" VerticalOptions="Start">
+            <Button Text="Új jegyzet" FontSize="14" Margin="5" WidthRequest="150" Clicked="Button_Clicked"/>
+            <Button Text="Módosítás" FontSize="14" Margin="5" WidthRequest="150" Command="{Binding UpdateCommand}"/>
+            <Button Text="Törlés" FontSize="14" Margin="5" WidthRequest="150" Command="{Binding DeleteCommand}"/>
+
+        </VerticalStackLayout>
+
+    </Grid>
+        
+    
+    
+    
+</ContentPage>
