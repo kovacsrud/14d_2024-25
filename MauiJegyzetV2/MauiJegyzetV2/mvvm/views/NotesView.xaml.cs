@@ -15,4 +15,16 @@ public partial class NotesView : ContentPage
 		var vm=BindingContext as NoteViewModel;
 		Navigation.PushAsync(new NewNoteView(vm));
     }
+
+    private void Button_Clicked_1(object sender, EventArgs e)
+    {
+
+        var vm = BindingContext as NoteViewModel;
+        if (vm.CurrentNote!=null)
+        {
+            Navigation.PushAsync(new UpdateNoteView(vm));
+        }
+
+        
+    }
 }

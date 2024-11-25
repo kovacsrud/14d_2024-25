@@ -8,7 +8,7 @@ namespace MauiJegyzetV2.mvvm.views;
 
 public partial class NewNoteView : ContentPage
 {
-    public Note NewNote { get; set; }
+    public Note NewNote { get; set; }=new Note();
     public NoteViewModel ViewModel { get; set; }
     public NewNoteView(NoteViewModel vm)
 	{
@@ -19,11 +19,12 @@ public partial class NewNoteView : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        var result = await DisplayAlert("Új jegyzet","Biztosan rögzíti?","Igen","Nem");
+        var result = await DisplayAlert("Új jegyzet", "Biztosan rögzíti?", "Igen", "Nem");
         if (result)
         {
             App.NotesRepo.NewItem(NewNote);
             ViewModel.GetNotes();
         }
+
     }
 }

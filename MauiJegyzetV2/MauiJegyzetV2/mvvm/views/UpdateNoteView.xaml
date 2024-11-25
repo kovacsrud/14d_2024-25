@@ -4,9 +4,9 @@
              x:Class="MauiJegyzetV2.mvvm.views.UpdateNoteView"
              Title="UpdateNoteView">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="Jegyzet módosítása" FontSize="26" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Entry Placeholder="Jegyzet címe" Text="{Binding CurrentNote.Title}" />
+        <Entry Placeholder="Jegyzet szövege" Text="{Binding CurrentNote.NoteText}" />
+        <Button Text="Módosít" Command="{Binding UpdateCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

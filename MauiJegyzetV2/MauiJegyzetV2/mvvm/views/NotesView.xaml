@@ -22,7 +22,7 @@
         </CollectionView>
         <VerticalStackLayout Grid.Row="2" VerticalOptions="Start">
             <Button Text="Új jegyzet" FontSize="14" Margin="5" WidthRequest="150" Clicked="Button_Clicked"/>
-            <Button Text="Módosítás" FontSize="14" Margin="5" WidthRequest="150" Command="{Binding UpdateCommand}"/>
+            <Button Text="Módosítás" FontSize="14" Margin="5" WidthRequest="150" Clicked="Button_Clicked_1"/>
             <Button Text="Törlés" FontSize="14" Margin="5" WidthRequest="150" Command="{Binding DeleteCommand}"/>
 
         </VerticalStackLayout>
