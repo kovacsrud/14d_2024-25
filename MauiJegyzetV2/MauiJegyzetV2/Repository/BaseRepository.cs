@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using SQLiteNetExtensions.Extensions;
 
 namespace MauiJegyzetV2.Repository
 {
@@ -79,8 +80,17 @@ namespace MauiJegyzetV2.Repository
             connection.Close();
         }
 
-       
-
-      
+        public List<T> GetItemsWithChildren()
+        {
+            try
+            {
+                return connection.GetAllWithChildren<T>().ToList();
+            }
+            catch (Exception ex)
+            {
+                StatusMsg = $"Hiba:{ex.Message}";                
+            }
+            return null;
+        }
     }
 }

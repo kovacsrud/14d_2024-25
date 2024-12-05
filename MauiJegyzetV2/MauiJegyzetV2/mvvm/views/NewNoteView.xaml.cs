@@ -1,3 +1,4 @@
+
 using MauiJegyzetV2.mvvm.models;
 using MauiJegyzetV2.mvvm.viewmodel;
 using PropertyChanged;
@@ -14,7 +15,8 @@ public partial class NewNoteView : ContentPage
 	{
 		InitializeComponent();
         ViewModel = vm;
-		BindingContext = this;	
+		BindingContext = this;
+        pickerCategories.SelectedIndex = 0;
 	}
 
     private async void Button_Clicked(object sender, EventArgs e)
@@ -22,6 +24,7 @@ public partial class NewNoteView : ContentPage
         var result = await DisplayAlert("Új jegyzet", "Biztosan rögzíti?", "Igen", "Nem");
         if (result)
         {
+            NewNote.CategoryId = NewNote.Category.Id;
             App.NotesRepo.NewItem(NewNote);
             ViewModel.GetNotes();
         }

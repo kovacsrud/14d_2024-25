@@ -15,12 +15,24 @@ namespace MauiJegyzetV2.mvvm.viewmodel
         public List<Note> Notes { get; set; }= new List<Note>();
         public Note CurrentNote { get; set; }
 
+        public List<Category> Categories { get; set; }
+        public Category CurrentCategory { get; set; }
+
         public ICommand UpdateCommand { get; set; }
         public ICommand DeleteCommand { get; set; } 
 
         public NoteViewModel()
         {
+            //App.CategoryRepo.NewItem(new Category { CategoryName = "mozgás" });
+            //App.CategoryRepo.NewItem(new Category { CategoryName = "bevásárlás" });
+            //App.CategoryRepo.NewItem(new Category { CategoryName = "munka" });
+            //App.CategoryRepo.NewItem(new Category { CategoryName = "edzés" });
+
             GetNotes();
+            if (Categories.Count<1)
+            {
+                App.CategoryRepo.NewItem(new Category { CategoryName="alapértelmezett"});
+            }
             UpdateCommand = new Command(async () =>
             {
                 var result = await Application.Current.MainPage.DisplayAlert("Jegyzet módosítása","Biztosan módosítja?","Igen","Nem");
@@ -46,7 +58,8 @@ namespace MauiJegyzetV2.mvvm.viewmodel
 
         public void GetNotes()
         {
-            Notes = App.NotesRepo.GetItems();
+            Notes = App.NotesRepo.GetItemsWithChildren();
+            Categories = App.CategoryRepo.GetItems();
         }
     }
 }

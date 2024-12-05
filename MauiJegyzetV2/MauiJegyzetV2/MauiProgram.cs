@@ -17,6 +17,7 @@ namespace MauiJegyzetV2
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
             builder.Services.AddSingleton<BaseRepository<Note>>();
+            builder.Services.AddSingleton<BaseRepository<Category>>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

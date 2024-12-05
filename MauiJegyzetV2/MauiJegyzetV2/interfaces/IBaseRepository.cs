@@ -12,5 +12,6 @@ namespace MauiJegyzetV2.interfaces
         void UpdateItem(T item);
         void DeleteItem(T item);
         List<T> GetItems();
+        List<T> GetItemsWithChildren();
     }
 }

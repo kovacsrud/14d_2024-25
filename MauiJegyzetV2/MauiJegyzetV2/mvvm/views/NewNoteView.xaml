@@ -7,6 +7,7 @@
         <Label Text="Új jegyzet rögzítése" FontSize="26" FontAttributes="Bold" HorizontalOptions="Center"/>
         <Entry Placeholder="Jegyzet címe" Text="{Binding NewNote.Title}" />
         <Entry Placeholder="Jegyzet szövege" Text="{Binding NewNote.NoteText}" />
+        <Picker x:Name="pickerCategories" Title="Válasszon kategóriát:" ItemsSource="{Binding ViewModel.Categories}" ItemDisplayBinding="{Binding CategoryName}" SelectedItem="{Binding NewNote.Category}" />
         <Button Text="Rögzít" Clicked="Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

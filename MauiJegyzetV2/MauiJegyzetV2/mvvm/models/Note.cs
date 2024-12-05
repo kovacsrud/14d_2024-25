@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MauiJegyzetV2.interfaces;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace MauiJegyzetV2.mvvm.models
 {
@@ -22,5 +23,12 @@ namespace MauiJegyzetV2.mvvm.models
         public string NoteText { get; set; }
         [NotNull]
         public DateTime Date { get; set; } = DateTime.Now;
+
+        [SQLiteNetExtensions.Attributes.ForeignKey(typeof(Category))]
+        public int CategoryId { get; set; }
+
+        [SQLiteNetExtensions.Attributes.OneToOne(CascadeOperations =CascadeOperation.CascadeRead)]
+        public Category Category { get; set; }
+
     }
 }
