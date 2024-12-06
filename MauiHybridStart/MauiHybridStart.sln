@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiHybridStart", "MauiHybridStart\MauiHybridStart.csproj", "{1297E241-3AAB-48B9-9394-1C26E37AC621}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1297E241-3AAB-48B9-9394-1C26E37AC621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1297E241-3AAB-48B9-9394-1C26E37AC621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1297E241-3AAB-48B9-9394-1C26E37AC621}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1297E241-3AAB-48B9-9394-1C26E37AC621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1297E241-3AAB-48B9-9394-1C26E37AC621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1297E241-3AAB-48B9-9394-1C26E37AC621}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {242D0537-9065-44D3-80C8-862E394EF31A}
+	EndGlobalSection
+EndGlobal
