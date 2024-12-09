@@ -1,0 +1,26 @@
+﻿@page "/randomusers"
+@using MauiHybridStart.mvvm.viewmodel
+
+<h3>Random Users lista</h3>
+
+@if (viewModel == null)
+{
+    <h4>Loading</h4>
+} else
+{
+    <h4>@viewModel.randomUsers.results.Count</h4>
+}
+
+
+
+@code {
+    private RandomViewModel? viewModel;
+
+    protected override async Task OnInitializedAsync()
+    {
+        viewModel = await RandomViewModel.CreateAsync();
+    }
+
+
+
+}
