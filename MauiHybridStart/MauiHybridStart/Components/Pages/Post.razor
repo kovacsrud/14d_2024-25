@@ -1,0 +1,16 @@
+﻿@using MauiHybridStart.mvvm.model
+
+
+
+<div class="card bg-primary text-white m-5">
+    <div class="card-body">
+        <h5 class="card-title">@Poszt.Title</h5>
+        <p class="card-text">@Poszt.Body</p>        
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Post2? Poszt { get; set; } = default!;
+
+}

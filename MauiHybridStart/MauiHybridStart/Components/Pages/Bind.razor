@@ -1,0 +1,17 @@
+﻿@page "/bind"
+@using MauiHybridStart.mvvm.viewmodel
+<h3>Kétirányú adatkötés</h3>
+
+<input  @bind="@vm.Szoveg" @bind:event="oninput"/>
+<h3>@vm.Szoveg</h3>
+
+
+@code {
+
+    [Inject]
+    MintaViewModel vm { get; set; } = default!;
+
+    
+
+
+}

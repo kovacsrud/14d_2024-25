@@ -1,9 +1,52 @@
 ﻿@page "/proba"
+@using MauiHybridStart.mvvm.model
+@using MauiHybridStart.mvvm.viewmodel
+@inject HttpClient Http
 
 <h2>Próba</h2>
 
 <p> @szoveg </p>
+<p>@vm.Szoveg</p>
+@if (posts == null)
+{
+    <p>Loading posts...</p>
+}
+else if (posts.Count == 0)
+{
+    <p>No posts available.</p>
+}
+else
+{
+    <ul>
+        @foreach (var post in posts)
+        {
+            @* <li>
+                <h4>@post.Title</h4>
+                <p>@post.Body</p>
+            </li> *@
+            <Post Poszt="@post" />
+        }
+    </ul>
+}
 
 @code {
     private string szoveg="Próba razor komponens";
+    [Inject]
+    MintaViewModel vm { get; set; } = default!;
+    private List<Post2>? posts;
+    private string ApiUrl = "https://jsonplaceholder.typicode.com/posts";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            posts = await Http.GetFromJsonAsync<List<Post2>>(ApiUrl);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);            
+        }
+    }
+
+
 }

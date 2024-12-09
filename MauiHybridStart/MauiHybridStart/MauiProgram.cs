@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiHybridStart.mvvm.viewmodel;
+using Microsoft.Extensions.Logging;
 
 namespace MauiHybridStart
 {
@@ -18,7 +19,9 @@ namespace MauiHybridStart
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
-    		builder.Logging.AddDebug();
+            builder.Services.AddSingleton<MintaViewModel>();
+            builder.Services.AddScoped(sp => new HttpClient());
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
