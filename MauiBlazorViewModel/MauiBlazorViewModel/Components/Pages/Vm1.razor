@@ -1,0 +1,13 @@
+﻿@page "/vm1"
+@using MauiBlazorViewModel.mvvm.viewmodel
+
+<h3>Komponens szintű viewmodel</h3>
+<h2>@vM1.Szoveg</h2>
+<h2>@vM2.Szoveg</h2>
+
+@code {
+    MintaVM1 vM1 = new MintaVM1();
+    [Inject]
+    MintaVM2 vM2 { get; set; } = default!;
+
+}

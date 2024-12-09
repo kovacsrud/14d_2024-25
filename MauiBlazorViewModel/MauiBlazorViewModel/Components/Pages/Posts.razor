@@ -1,0 +1,46 @@
+﻿@page "/posts"
+@using MauiBlazorViewModel.mvvm.model
+@inject HttpClient client
+
+<h3>Posts</h3>
+
+@if (posts == null)
+{
+    <p>Fetching...</p>
+} else if (posts.Count==0)
+{
+    <p>Nincsenek posztok...</p>
+} else
+{
+   @*  <ul>
+        @foreach(var post in posts)
+        {
+            <li>
+                <h3>@post.Title</h3>
+                <p>@post.Body</p>
+            </li>
+        }
+    </ul> *@
+    @foreach(var post in posts)
+    {
+        <PostElem Poszt="@post"/>
+    }
+}
+
+@code {
+    private List<Post>? posts;
+    private string ApiUrl = "https://jsonplaceholder.typicode.com/posts";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            posts = await client.GetFromJsonAsync<List<Post>>(ApiUrl);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);                        
+        }
+    }
+
+}

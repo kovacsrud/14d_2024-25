@@ -1,0 +1,15 @@
+﻿@page "/bind"
+@using MauiBlazorViewModel.mvvm.viewmodel
+
+
+<h3>Kétirányú adatkötés</h3>
+
+<h4>@vM2.Szoveg</h4>
+<input @bind="@vM2.Szoveg" @bind:event="oninput" />
+
+
+@code {
+    [Inject]
+    MintaVM2 vM2 { get; set; } = default!;
+
+}

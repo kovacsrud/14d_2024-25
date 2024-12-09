@@ -1,0 +1,16 @@
+﻿@using MauiBlazorViewModel.mvvm.model
+
+<div class="card m-5 bg-primary text-white">
+    <div class="card-body">
+        <h5 class="card-title">@Poszt.Title</h5>
+        <p class="card-text">@Poszt.Body</p>
+        <a href="#" class="btn btn-secondary">Tovább..</a>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public Post Poszt { get; set; } = default!;
+
+}

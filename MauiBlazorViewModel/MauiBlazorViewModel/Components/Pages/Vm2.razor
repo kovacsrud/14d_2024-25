@@ -1,0 +1,11 @@
+﻿@page "/vm2"
+@using MauiBlazorViewModel.mvvm.viewmodel
+
+<h3>Alkalmazás szintű viewmodel</h3>
+<h2>@vM2.Szoveg</h2>
+
+@code {
+    [Inject]
+    MintaVM2 vM2 { get; set; } = default!;
+
+}
