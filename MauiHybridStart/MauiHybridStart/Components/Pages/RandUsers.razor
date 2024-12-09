@@ -9,6 +9,10 @@
 } else
 {
     <h4>@viewModel.randomUsers.results.Count</h4>
+    @foreach(var result in viewModel.randomUsers.results)
+    {
+        <h4>@result.name.title @result.name.first @result.name.last</h4>
+    }
 }
 
 
