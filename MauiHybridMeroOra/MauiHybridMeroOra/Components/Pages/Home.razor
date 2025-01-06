@@ -1,0 +1,12 @@
+﻿@page "/"
+
+<h1 class="text-3xl font-bold text-center text-sky-600">Hello, world!</h1>
+<button @onclick="Alert" class="btn btn-primary">Alert</button>
+
+@code{
+    private void Alert()
+    {
+        Application.Current.MainPage.DisplayAlert("Alert","Üzenet","Ok");
+    }
+}
+

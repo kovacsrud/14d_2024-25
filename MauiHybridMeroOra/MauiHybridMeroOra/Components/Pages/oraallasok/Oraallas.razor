@@ -1,0 +1,16 @@
+﻿@using MauiHybridMeroOra.mvvm.model
+
+<div class="card w-50 m-2">
+    <div class="card-body">
+        <h5 class="card-title">@OraAdat.Datum</h5>
+        <p class="card-text">Termelés:@OraAdat.Termeles</p>
+        <p class="card-text">Fogyasztás:@OraAdat.Fogyasztas</p>
+        <button class="btn btn-primary">Módosítás</button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public MeroOra OraAdat { get; set; }
+
+}
