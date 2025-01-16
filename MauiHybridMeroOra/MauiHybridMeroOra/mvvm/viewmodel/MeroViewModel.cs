@@ -15,6 +15,10 @@ namespace MauiHybridMeroOra.mvvm.viewmodel
         public MeroOra AktualisOraallas { get; set; } = new MeroOra();
         public bool Modositas { get; set; } = false;
 
+        public event Action? TorlesChanged;
+        private void Adatvaltozas()=>TorlesChanged?.Invoke();
+        
+
         public MeroViewModel()
         {
           
@@ -24,6 +28,7 @@ namespace MauiHybridMeroOra.mvvm.viewmodel
         public void AdatLetoltes()
         {
             Oraallasok = App.MeroRepository.GetItems();
+            
         }
 
         public void UjOraAllas(MeroOra meroora)
@@ -65,7 +70,8 @@ namespace MauiHybridMeroOra.mvvm.viewmodel
                     App.MeroRepository.DeleteItem(meroora);
                     await Application.Current.MainPage.DisplayAlert("Info", App.MeroRepository.StatusMsg, "Ok");
                     AdatLetoltes();
-
+                    Adatvaltozas();
+                    
                 }
             }
             catch (Exception ex)

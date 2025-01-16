@@ -11,5 +11,16 @@
 </div>
 
 @code {
+    protected override void OnInitialized()
+    {
+        vm.TorlesChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        vm.TorlesChanged -= StateHasChanged;
+    }
+
+
 
 }
