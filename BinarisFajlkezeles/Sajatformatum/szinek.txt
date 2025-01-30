@@ -1,0 +1,35 @@
+/* Coolors Exported Palette - https://coolors.co/386641-6a994e-a7c957-f2e8cf-bc4749 */
+
+- Tailwind
+
+{ 'hunter_green': { DEFAULT: '#386641', 100: '#0b140d', 200: '#16291a', 300: '#223d27', 400: '#2d5234', 500: '#386641', 600: '#51935e', 700: '#77b483', 800: '#a4cdac', 900: '#d2e6d6' }, 'asparagus': { DEFAULT: '#6a994e', 100: '#151e10', 200: '#2a3d1f', 300: '#3f5b2f', 400: '#54793e', 500: '#6a994e', 600: '#85b36b', 700: '#a4c690', 800: '#c2d9b5', 900: '#e1ecda' }, 'yellow_green': { DEFAULT: '#a7c957', 100: '#222b0e', 200: '#45561c', 300: '#67812a', 400: '#8aad38', 500: '#a7c957', 600: '#b8d377', 700: '#c9de99', 800: '#dbe9bb', 900: '#edf4dd' }, 'parchment': { DEFAULT: '#f2e8cf', 100: '#463813', 200: '#8d7027', 300: '#cba442', 400: '#dfc688', 500: '#f2e8cf', 600: '#f4edd9', 700: '#f7f1e2', 800: '#faf6ec', 900: '#fcfaf5' }, 'bittersweet_shimmer': { DEFAULT: '#bc4749', 100: '#260e0e', 200: '#4c1c1c', 300: '#73292b', 400: '#993739', 500: '#bc4749', 600: '#ca6c6e', 700: '#d79192', 800: '#e5b6b6', 900: '#f2dadb' } }
+
+- CSV
+
+386641,6a994e,a7c957,f2e8cf,bc4749
+
+- With #
+
+#386641, #6a994e, #a7c957, #f2e8cf, #bc4749
+
+- Array
+
+["386641","6a994e","a7c957","f2e8cf","bc4749"]
+
+- Object
+
+{"Hunter green":"386641","Asparagus":"6a994e","Yellow Green":"a7c957","Parchment":"f2e8cf","Bittersweet shimmer":"bc4749"}
+
+- Extended Array
+
+[{"name":"Hunter green","hex":"386641","rgb":[56,102,65],"cmyk":[45,0,36,60],"hsb":[132,45,40],"hsl":[132,29,31],"lab":[39,-25,16]},{"name":"Asparagus","hex":"6a994e","rgb":[106,153,78],"cmyk":[31,0,49,40],"hsb":[98,49,60],"hsl":[98,32,45],"lab":[58,-30,34]},{"name":"Yellow Green","hex":"a7c957","rgb":[167,201,87],"cmyk":[17,0,57,21],"hsb":[78,57,79],"hsl":[78,51,56],"lab":[76,-29,52]},{"name":"Parchment","hex":"f2e8cf","rgb":[242,232,207],"cmyk":[0,4,14,5],"hsb":[43,14,95],"hsl":[43,57,88],"lab":[92,-1,13]},{"name":"Bittersweet shimmer","hex":"bc4749","rgb":[188,71,73],"cmyk":[0,62,61,26],"hsb":[359,62,74],"hsl":[359,47,51],"lab":[47,47,24]}]
+
+- XML
+
+<palette>
+  <color name="Hunter green" hex="386641" r="56" g="102" b="65" />
+  <color name="Asparagus" hex="6a994e" r="106" g="153" b="78" />
+  <color name="Yellow Green" hex="a7c957" r="167" g="201" b="87" />
+  <color name="Parchment" hex="f2e8cf" r="242" g="232" b="207" />
+  <color name="Bittersweet shimmer" hex="bc4749" r="188" g="71" b="73" />
+</palette>
