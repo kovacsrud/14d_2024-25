@@ -37,6 +37,25 @@ namespace Sajatformatum
                 File.WriteAllBytes("szinek.bin",ms.ToArray());
                 Console.WriteLine("Adatok fájlba írva");
             }
+
+            var binVissza = File.ReadAllBytes("szinek.bin");
+            //saját fileformátum:filenév hossza ?/filenév változó/fájl hossza ?/fájl adatok változó
+            using (MemoryStream ms=new MemoryStream(binVissza))
+            {
+                using (BinaryReader br=new BinaryReader(ms))
+                {
+                    var filenevHosszBin=br.ReadBytes(4);
+                    var filenevHossz = BitConverter.ToInt32(filenevHosszBin);
+                    Console.WriteLine(filenevHossz);
+                    br.ReadBytes(filenevHossz);
+                    var fileHosszBin = br.ReadBytes(4);
+                    var fileHossz=BitConverter.ToInt32(fileHosszBin);
+                    Console.WriteLine(fileHossz);
+                    var fileAdatok=br.ReadBytes(fileHossz);
+                    File.WriteAllBytes("szinek_masolat.txt",fileAdatok);
+
+                }
+            }
         }
     }
 }
