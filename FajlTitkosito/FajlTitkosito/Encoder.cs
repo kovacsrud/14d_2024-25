@@ -57,5 +57,63 @@ namespace FajlTitkosito
             
 
         }
+
+        public static void Decoding(string fajlnev,string jelszo)
+        {
+            try
+            {
+                byte[] fajl = File.ReadAllBytes(fajlnev);
+                int fajlLength = fajl.Length;
+                Aes aes = Aes.Create();
+                SHA256 sha256 = SHA256.Create();
+                byte[] kulcs = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(jelszo));
+                byte[] initVektor;
+                byte[] visszaFajlnev;
+                byte[] visszaTartalomHash;
+                byte[] visszaTartalom;
+                //aes.Padding = PaddingMode.Zeros;
+
+                using (MemoryStream ms=new MemoryStream(fajl))
+                {
+                    using (BinaryReader reader=new BinaryReader(ms))
+                    {
+                        initVektor = reader.ReadBytes(16);
+                        int fajlnevMeret = BitConverter.ToInt32(reader.ReadBytes(4));
+                        visszaFajlnev=reader.ReadBytes(fajlnevMeret);
+                        visszaTartalomHash = reader.ReadBytes(32);
+                        int tartalomHossz=BitConverter.ToInt32(reader.ReadBytes(4));
+                        visszaTartalom= reader.ReadBytes(tartalomHossz);
+
+                    }
+                }
+
+                ICryptoTransform dekodolo = aes.CreateDecryptor(kulcs, initVektor);
+                byte[] dekodolt=dekodolo.TransformFinalBlock(visszaTartalom,0,visszaTartalom.Length);
+
+                byte[] ellenorzoHash = sha256.ComputeHash(dekodolt);
+
+                if (System.Text.Encoding.UTF8.GetString(ellenorzoHash)== System.Text.Encoding.UTF8.GetString(visszaTartalomHash))
+                {
+                    Message = "A jelszó megfelelő!";
+                    File.WriteAllBytes(System.Text.Encoding.UTF8.GetString(visszaFajlnev), dekodolt);
+                } else
+                {
+                   
+                    Message = "A jelszó nem megfelelő!";
+                                       
+                }
+
+
+
+            }
+            catch (CryptographicException ex)
+            {
+                Message = "A jelszó nem megfelelő!";
+            }
+            catch (Exception ex)
+            {
+                Message = ex.Message;
+            }
+        }
     }
 }

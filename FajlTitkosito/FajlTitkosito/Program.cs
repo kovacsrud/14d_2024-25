@@ -8,6 +8,10 @@
             Encoder.Encoding("proba.txt", "proba.bin", "Titok_12");
 
             Console.WriteLine(Encoder.Message);
+
+            Encoder.Decoding("proba.bin", "Titok_12");
+
+            Console.WriteLine(Encoder.Message);
         }
     }
 }
